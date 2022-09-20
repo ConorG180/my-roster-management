@@ -1,0 +1,1 @@
+web: gunicorn my-roster-management.wsgi
