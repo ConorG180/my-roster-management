@@ -1,5 +1,12 @@
 from django.contrib import admin
 from .models import Employee
-# Register your models here.
 
-admin.site.register(Employee)
+admin.site.site_header = "MyRosterManagement Dashboard"
+
+
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ("employee_id", "first_name", "last_name", "role", "phone_number")
+    list_filter = ("first_name", "last_name", "role",)
+    search_fields = ("first_name", "last_name", "role",)
+
+admin.site.register(Employee, EmployeeAdmin)
