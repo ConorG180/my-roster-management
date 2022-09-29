@@ -10,6 +10,10 @@ Before starting development on MyRosterManagement, Balsamiq was used to form wir
 ![index.html wireframe](static/wireframes/home.png "index.html (Home page)")
 ![employees.html wireframe](static/wireframes/employees.png "employees.html (Employees page)")
 ![roles.html wireframe](static/wireframes/roles.png "roles.html (Roles page)")
-![Contact modal wireframe](static/wireframes/contact.png "Contact modal")
+![Contact modal wireframe](static/wireframes/contact-modal.png "Contact modal")
 ![calendar.html wireframe](static/wireframes/calendar-monthly-view.png "calendar.html (Calendar monthly view)")
 ![calendar.html wireframe](static/wireframes/calendar-daily-view.png "calendar.html (Calendar daily view)")
+
+# Entity Relationship Diagram
+Before starting development on MyRosterManagement, diagrams.net/draw.io was used to form an Entity Relationship Diagram (ERD) for the programme. As the programme relies heavily on models and databases, an ERD helped immensely in determining how to structure the database, including aiding in aspects such as relationships between tables, primary and foreign keys, and selecting fields for various tables. The ERD can be seen below:  
+![MyRosterManagement ERD](static/entity-relationship-diagrams/my-roster-management-entity-relationship-diagram.drawio.png "MyRosterManagement ERD")
