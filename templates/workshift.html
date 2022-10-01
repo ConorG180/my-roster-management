@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>And I am the workshift page (workshift.html)</h1>
+<h2>Here is my model content:</h2>
+<ul>
+    {% for workshift in workshifts %}
+        <li>{{workshift.workshift_id}}</li>
+        <li>{{workshift.employee_id}}</li>
+        <li>{{workshift.start_time}}</li>
+        <li>{{workshift.end_time}}</li>
+        <li>{{workshift.role_id}}</li>
+        <li>{{workshift.created_on}}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

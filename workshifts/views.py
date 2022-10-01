@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import Workshift
 
-# Create your views here.
+def workshift(request):
+    workshifts = Workshift.objects.all()
+    context = {
+        "workshifts": workshifts
+    }
+    return render(request, "workshift.html", context)
