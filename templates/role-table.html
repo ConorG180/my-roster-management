@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>And I am the role table page (role-table.html)</h1>
+<h2>Here is my model content:</h2>
+<ul>
+    {% for role in roles %}
+        <li>{{role.role_id}}</li>
+        <li>{{role.title}}</li>
+        <li>{{role.hourly_wage}}</li>
+    {% endfor%}
+</ul>
+{% endblock content %}

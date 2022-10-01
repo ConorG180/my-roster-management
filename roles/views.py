@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import Role
 
-# Create your views here.
+def role(request):
+    roles = Role.objects.all()
+    context = {
+        "roles": roles
+    }
+    return render(request, "role-table.html", context)
