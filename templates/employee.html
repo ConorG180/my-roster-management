@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>And I am the employee page (employee.html)</h1>
+<h2>Here is my model content:</h2>
+<ul>
+    {% for employee in employees %}
+        <li>{{employee.employee_id}}</li>
+        <li>{{employee.first_name}}</li>
+        <li>{{employee.last_name}}</li>
+        <li>{{employee.date_of_birth}}</li>
+        <li>{{employee.gender}}</li>
+        <li>{{employee.role}}</li>
+        <li>{{employee.pps_number}}</li>
+        <li>{{employee.phone_number}}</li>
+        <li>{{employee.email}}</li>
+        <li>{{employee.start_date}}</li>
+    {% endfor%}
+</ul>
+{% endblock content %}

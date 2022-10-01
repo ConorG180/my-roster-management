@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from roles.views import role
 from home.views import home
+from employees.views import employee
 
 urlpatterns = [
     path('admin/', admin.site.urls),
