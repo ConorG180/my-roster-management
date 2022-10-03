@@ -1,0 +1,22 @@
+/* Root Variables */
+:root{
+  --main-bg-color: #f18820;
+}
+
+.brand-color{
+    color: var(--main-bg-color);
+}
+
+.logo{
+  letter-spacing: 1px;
+  font-size: 2rem;
+}
+
+.navlink{
+  padding-left: 25px !important;
+  color: white !important;
+}
+
+.navlink:hover{
+  color: #f18820 !important;
+}
