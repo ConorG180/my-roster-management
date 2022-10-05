@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2 sticky-top">
         <div class="container-fluid">
             <a href="{% url 'home' %}" class="pl-3 pl-lg-0 display-4 navbar-brand font-weight-bold logo">
-                <span class = "brand-color display-5"> M</span>y<span class = "brand-color display-5"> R</span>oster<span class = "brand-color display-5"> M</span>anagement</a>
+                <span class = "brand-color-text display-5"> M</span>y<span class = "brand-color-text display-5"> R</span>oster<span class = "brand-color-text display-5"> M</span>anagement</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,7 +40,7 @@
                     </li>
                     <li class="nav-item">
                         <h4>
-                            <a class="nav-link navlink" data-toggle="modal" data-target="#contact-modal">Contact</a>
+                            <a href = "#" class="nav-link navlink" data-toggle="modal" data-target="#contact-modal">Contact</a>
                         </h4>
                     </li>
                 </ul>
@@ -80,21 +80,21 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-8 offset-lg-2 d-flex justify-content-around align-content-center pt-5 pb-5">
-                                    <a href = "https://www.facebook.com">
+                                    <a href = "https://www.facebook.com" target="_blank">
                                         <i class="social-media-link fa-brands fa-2xl fa-facebook"></i>
                                     </a>
-                                    <a href = "https://www.twitter.com">
+                                    <a href = "https://www.twitter.com" target="_blank">
                                         <i class="social-media-link fa-brands fa-2xl fa-twitter"></i>
                                     </a>
-                                    <a href = "https://www.youtube.com">
+                                    <a href = "https://www.youtube.com" target="_blank">
                                         <i class="social-media-link fa-brands fa-2xl fa-youtube"></i>
                                     </a>
-                                    <a href = "https://www.instagram.com">
+                                    <a href = "https://www.instagram.com" target="_blank">
                                         <div class="instagram">
                                             <i class="fa-social-media-link fa-brands fa-2xl fa-instagram"></i>
                                         </div>
                                     </a>
-                                    <a href = "https://www.linkedin.com">
+                                    <a href = "https://www.linkedin.com" target="_blank">
                                         <i class="social-media-link fa-brands fa-2xl fa-linkedin"></i>
                                     </a>
                                 </div>
@@ -107,8 +107,37 @@
             </div>
         </div>
     </div>
+
     {% block content %}
     {% endblock %}
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-secondary fixed-bottom">
+        <div class="container d-flex justify-content-center py-4">
+                <a href = "https://www.facebook.com" class="mx-4" target="_blank">
+                    <i class="social-media-link fa-brands fa-2xl fa-facebook text-light"></i>
+                </a>
+                <a href = "https://www.twitter.com" class="mx-4" target="_blank">
+                        <i class="social-media-link fa-brands fa-2xl fa-twitter text-light text-light"></i>
+                </a>
+                <a href = "https://www.youtube.com" class="mx-4" target="_blank">
+                    <i class="social-media-link fa-brands fa-2xl fa-youtube text-light"></i>
+                </a>
+                <a href = "https://www.instagram.com" class="mx-4" target="_blank">
+                    <div class="instagram">
+                        <i class="fa-social-media-link fa-brands fa-2xl fa-instagram text-light"></i>
+                    </div>
+                </a>
+                <a href = "https://www.linkedin.com" class="mx-4" target="_blank">
+                    <i class="social-media-link fa-brands fa-2xl fa-linkedin text-light"></i>
+                </a>
+        </div>
+        <!-- Copyright -->
+        <div class="text-center text-white p-2 brand-color-bg">
+            <h6>
+                <small>© 2020 Copyright: MyRosterManagement</small>
+            </h6>
+        </div>
+    </footer>
 <!-- Bootstrap jQuery, Popper.js, and plugins -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

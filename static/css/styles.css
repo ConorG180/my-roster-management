@@ -1,12 +1,21 @@
 /* Root Variables */
 :root{
   --primary-color: #f18820;
+  --primary-color-dark: #db6930;
 }
 
-.brand-color{
-    color: var(--primary-color);
+.brand-color-text{
+  color: var(--primary-color);
 }
-
+.brand-color-dark-text{
+  color: var(--primary-color-dark);
+}
+.brand-color-bg{
+  background-color: var(--primary-color);
+}
+.brand-color-dark-bg{
+  background-color: var(--primary-color-dark);
+}
 .logo{
   letter-spacing: 1px;
   font-size: 2rem;
@@ -31,26 +40,38 @@ button:hover{
 .social-media-link:hover{
   color: var(--primary-color) !important;
 }
-.fa-facebook{
+#contact-modal .fa-facebook{
   color: #3b5998;
 }
-.fa-youtube{
+#contact-modal .fa-youtube{
   color: #bb0000;
 }
-.fa-twitter{
+#contact-modal .fa-twitter{
   color: #00aced;
 }
-.fa-linkedin{
+#contact-modal .fa-linkedin{
   color: #007bb6;
 }
-.instagram{
+/* Instagram has a lot of custom css for gradient color effect and also hover effect. Modal contact and footer icons are different */
+#contact-modal .instagram{
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: 250ms;
   padding: 2px 0 2px 0;
+  transition: 200ms;
 }
-.instagram:hover{
-  color: var(--primary-color);
+#contact-modal .instagram i, #footer .instagram i{
+  cursor: pointer !important;
+}
+
+#contact-modal .instagram:hover{
+  background: var(--primary-color);
+  -webkit-background-clip: text;
+}
+footer .instagram i{
+  transition: 250ms;
+}
+footer .instagram:hover i{
+  color: var(--primary-color) !important;
 }
