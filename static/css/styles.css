@@ -75,3 +75,6 @@ footer .instagram i{
 footer .instagram:hover i{
   color: var(--primary-color) !important;
 }
+img{
+max-width: 100%;
+}
