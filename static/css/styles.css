@@ -34,6 +34,7 @@ button:hover{
   background-color: var(--primary-color) !important;
   border-color: transparent !important;
 }
+/* Social media icons styling */
 .social-media-link{
   transition: 250ms;
 }
@@ -52,6 +53,7 @@ button:hover{
 #contact-modal .fa-linkedin{
   color: #007bb6;
 }
+
 /* Instagram has a lot of custom css for gradient color effect and also hover effect. Modal contact and footer icons are different */
 #contact-modal .instagram{
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -75,6 +77,10 @@ footer .instagram i{
 footer .instagram:hover i{
   color: var(--primary-color) !important;
 }
+
 img{
 max-width: 100%;
+}
+table tr:nth-child(even) {
+  background-color: #D3D3D3 !important;
 }
