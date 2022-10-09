@@ -17,3 +17,18 @@ Before starting development on MyRosterManagement, Balsamiq was used to form wir
 # Entity Relationship Diagram
 Before starting development on MyRosterManagement, diagrams.net/draw.io was used to form an Entity Relationship Diagram (ERD) for the programme. As the programme relies heavily on models and databases, an ERD helped immensely in determining how to structure the database, including aiding in aspects such as relationships between tables, primary and foreign keys, and selecting fields for various tables. The ERD can be seen below:  
 ![MyRosterManagement ERD](static/entity-relationship-diagrams/my-roster-management-entity-relationship-diagram.drawio.png "MyRosterManagement ERD")
+
+# Features
+## Existing features
+
+### Navigation
+The programme offers a very simple and easy to use navigation system to navigate around the programme. This is not only in the form of moving to different pages, but also for features such as a contact modal and large buttons under each relevant table to manipulate the user's database.
+#### **Images**  
+
+### Contact us modal
+Should any users experience any difficulty in using the software, there is a "Contact" modal which can be accessed on the navigation bar. This allows the user to contact the company via phone or email, and also offers means of contacting the company through social media pages.
+#### **Images**  
+
+### Footer
+An attractive footer is included in the programme to offer the user a simple way of easily navigating to the social media pages of the company.
+#### **Images**  
