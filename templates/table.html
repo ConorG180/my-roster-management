@@ -1,0 +1,49 @@
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <h2>
+                {{table_name}}
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <table class="table table-bordered border-dark">
+                <thead>
+                    <caption>List of {{table_name}}</caption>
+                    <tr>
+                        {% for field in fields %}
+                            <th scope = "col" class="bg-primary text-white border-dark">
+                                {{ field.name }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                <!-- start of first table row -->
+                    <tr scope="row" class="border-primary">
+                    {% for record in records %}
+                        <td class="border-dark">
+                            {{record}}
+                        </td>
+                        {% if forloop.counter|divisibleby:col_num %}
+                            <!-- End of last row -->
+                            </tr>
+                            <!-- Start of next row -->
+                            <tr scope="row">
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
+        <button class = "btn btn-primary btn-lg">Add {{table_item_name}}</button>
+        <button class = "btn btn-primary btn-lg">Edit {{table_item_name}}</button>
+        <button class = "btn btn-primary btn-lg">Delete {{table_item_name}}</button>
+    </div>
+    </div>
+</div>
+
+
