@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Role
 from .forms import Role_form
 
@@ -39,3 +39,18 @@ def add_role(request):
         "form": form
     }
     return render(request, "add-role.html", context)
+
+
+def edit_role(request, role_id):
+    role = get_object_or_404(Role, role_id=role_id )
+    if request.method == "POST":
+        form = Role_form(request.POST, instance=role)
+        if form.is_valid():
+            form.save()
+            return redirect("role_table")
+    form = Role_form(instance=role)
+    context = {
+    "form": form,
+    "table_item_name": "Role"
+    }
+    return render(request, "edit-role.html", context)
