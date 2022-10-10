@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from roles.views import role
+from roles.views import role, add_role
 from home.views import home
 from employees.views import employee
 from workshifts.views import workshift
@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
     path('role/', role, name="role_table"),
+    path('add-role/', add_role, name="add_role"),
+    path('add-role/add', add_role, name="add_role"),
     path('employee/', employee, name="employee"),
     path('workshift/', workshift, name="workshift"),
 ]
