@@ -4,7 +4,7 @@ from .forms import Role_form
 
 
 def role(request):
-    roles = Role.objects.all()
+    roles = Role.objects.all().order_by("role_id")
     fields = [field for field in Role._meta.fields]
     role_list = roles.values_list()
     role_value_indexes = range(len(fields))
@@ -13,7 +13,6 @@ def role(request):
         all_role_values = []
         for role in role_list:
             for index in role_value_indexes:
-                print(role[index])
                 all_role_values.append(role[index])
         return all_role_values
 
@@ -54,3 +53,9 @@ def edit_role(request, role_id):
     "table_item_name": "Role"
     }
     return render(request, "edit-role.html", context)
+
+
+def delete_role(request, role_id):
+    role = get_object_or_404(Role, role_id=role_id)
+    role.delete()
+    return redirect("role_table")
