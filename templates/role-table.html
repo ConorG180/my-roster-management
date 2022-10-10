@@ -4,4 +4,18 @@
 
 {% include "table.html" with fields=fields num_of_rows=num_of_roles records=all_role_values col_num=col_num table_name=table_name table_item_name=table_item_name %}
 
+<div class="container">
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
+
+<a href="{% url 'add_role' %}">
+    <button class="btn btn-primary btn-lg">
+        Add {{table_item_name}}
+    </button>
+</a>
+<button class="btn btn-primary btn-lg">Edit {{table_item_name}}</button>
+<button class="btn btn-primary btn-lg">Delete {{table_item_name}}</button>
+</div>
+</div>
+</div>
 {% endblock content %}
