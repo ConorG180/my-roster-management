@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Role
+from .forms import Role_form
 
 
 def role(request):
@@ -16,8 +17,6 @@ def role(request):
                 all_role_values.append(role[index])
         return all_role_values
 
-    role_value_finder()
-    print(range(len(fields)))
     context = {
         "fields": fields,
         "all_role_values": role_value_finder(),
@@ -27,3 +26,16 @@ def role(request):
         "table_item_name": "Role"
     }
     return render(request, "role-table.html", context)
+
+
+def add_role(request):
+    if request.method == "POST":
+        form = Role_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("role_table")
+    form = Role_form()
+    context = {
+        "form": form
+    }
+    return render(request, "add-role.html", context)
