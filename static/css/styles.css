@@ -29,7 +29,7 @@
 .navlink:hover{
   color: var(--primary-color) !important;
 }
-button:hover{
+button:hover, a.btn:hover{
   color: white !important;
   background-color: var(--primary-color) !important;
   border-color: transparent !important;
@@ -63,7 +63,7 @@ button:hover{
   padding: 2px 0 2px 0;
   transition: 200ms;
 }
-#contact-modal .instagram i, #footer .instagram i{
+#contact-modal .instagram i{
   cursor: pointer !important;
 }
 
