@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% include "table.html" with fields=fields num_of_rows=num_of_roles records=all_role_values col_num=col_num table_name=table_name table_item_name=table_item_name %}
+{% include "table.html" with fields=fields num_of_rows=num_of_roles records=all_role_values col_num=col_num table_name=table_name table_item_name=table_item_name edit_url="edit_role" delete_url="delete_role" %}
 
 <div class="container">
 <div class="row">

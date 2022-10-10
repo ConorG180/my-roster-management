@@ -32,16 +32,14 @@
                     <!-- This counts backwards from end of for loop, if number is divisible by 3, add Edit and Delete buttons to row.  -->
                     {% if forloop.revcounter|divisibleby:col_num %}
                     <td class="border-dark">
-                        <a href="/edit-role/{{ record }}">
-                            <button class="btn btn-primary">
-                                Edit {{table_item_name}}
-                            </button>
+                        <a href="{% url edit_url record %}" class="btn btn-primary">
+                            Edit {{table_item_name}}
                         </a>
                     </td>
                     <td class="border-dark">
-                        <button class="btn btn-danger">
+                        <a href="{% url delete_url record %}" class="btn btn-danger">
                             Delete {{table_item_name}}
-                        </button>
+                        </a>
                     </td>
                     {% endif %}
                         <td class="border-dark">
