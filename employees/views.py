@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Employee
 from .forms import Employee_form
 
@@ -43,7 +43,18 @@ def add_employee(request):
 
 
 def edit_employee(request, employee_id):
-    return redirect("index")
+    employee = get_object_or_404(Employee, employee_id=employee_id )
+    if request.method == "POST":
+        form = Employee_form(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+            return redirect("employee")
+    form = Employee_form(instance=employee)
+    context = {
+    "form": form,
+    "table_item_name": "Employee"
+    }
+    return render(request, "edit-role.html", context)
 
 
 def delete_employee(request, employee_id):
