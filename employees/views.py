@@ -54,7 +54,7 @@ def edit_employee(request, employee_id):
     "form": form,
     "table_item_name": "Employee"
     }
-    return render(request, "edit-role.html", context)
+    return render(request, "edit-employee.html", context)
 
 
 def delete_employee(request, employee_id):
