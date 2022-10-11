@@ -32,3 +32,7 @@ Should any users experience any difficulty in using the software, there is a "Co
 ### Footer
 An attractive footer is included in the programme to offer the user a simple way of easily navigating to the social media pages of the company.
 #### **Images**  
+
+### CRUD (Create, Read, Update, Delete) functionality
+On each table outlining the companies current records of employees, roles and scheduled workshifts, there are buttons which allow the user to manipulate these records. For example, a certified user may add a new employee and delete the replaced employee, and schedule their next workshift for when they wish.
+#### **Images**  
