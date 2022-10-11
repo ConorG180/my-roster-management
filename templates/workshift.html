@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>And I am the workshift page (workshift.html)</h1>
-<h2>Here is my model content:</h2>
-<ul>
-    {% for workshift in workshifts %}
-        <li>{{workshift.workshift_id}}</li>
-        <li>{{workshift.employee_id}}</li>
-        <li>{{workshift.start_time}}</li>
-        <li>{{workshift.end_time}}</li>
-        <li>{{workshift.role_id}}</li>
-        <li>{{workshift.created_on}}</li>
-    {% endfor %}
-</ul>
+
+{% include "table.html" with fields=fields num_of_rows=num_of_workshifts records=all_workshift_values col_num=col_num table_name=table_name table_item_name=table_item_name edit_url="edit_workshift" delete_url="delete_workshift" %}
+
+<div class="container">
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
+
+<a href="{% url 'add_role' %}">
+    <button class="btn btn-primary btn-lg">
+        Add {{table_item_name}}
+    </button>
+</a>
+</div>
+</div>
+</div>
 {% endblock content %}
+
