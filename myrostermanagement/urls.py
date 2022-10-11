@@ -14,6 +14,9 @@ urlpatterns = [
     path('edit-role/<role_id>', role_views.edit_role, name="edit_role"),
     path('delete-role/<role_id>', role_views.delete_role, name="delete_role"),
     path('employee/', employee_views.employee, name="employee"),
+    path('add-employee/add', employee_views.add_employee, name="add_employee"),
+    path('edit-employee/<employee_id>', employee_views.edit_employee, name="edit_employee"),
+    path('delete-employee/<employee_id>', employee_views.delete_employee, name="delete_employee"),
     path('workshift/', workshift_views.workshift, name="workshift"),
     # url - function - namespace: used in hrefs
 ]
