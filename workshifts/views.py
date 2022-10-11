@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Workshift
+from .forms import Workshift_form
 
 def workshift(request):
 
@@ -27,6 +28,16 @@ def workshift(request):
 
 
 def add_workshift(request):
+    if request.method == "POST":
+        form = Workshift_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("workshift")
+    form = Workshift_form()
+    context = {
+        "form": form,
+        "table_item_name": "Workshift"
+    }
     return render(request, "add-workshift.html", context)
 
 
