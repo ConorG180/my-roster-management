@@ -1,60 +1,62 @@
-<div class="container pt-5">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2 text-center">
-            <h2>
-                {{table_name}}
-            </h2>
+<div class="table-responsive">
+    <div class="container-fluid pt-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <h2>
+                    {{table_name}}
+                </h2>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-            <table class="table table-bordered border-dark">
-                <thead>
-                    <caption>List of {{table_name}}</caption>
-                    <tr>
-                        <th scope = "col" class="bg-primary text-white border-dark">
-                            Edit
-                        </th>
-                        <th scope = "col" class="bg-primary text-white border-dark">
-                            Delete
-                        </th>
-                        {% for field in fields %}
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <table class="table table-bordered border-dark mx-auto">
+                    <thead>
+                        <caption>List of {{table_name}}</caption>
+                        <tr>
                             <th scope = "col" class="bg-primary text-white border-dark">
-                                {{ field.name }}
+                                Edit
                             </th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                <!-- start of first table row -->
-                    <tr scope="row" class="border-primary">
-                    {% for record in records %}
-                    <!-- This counts backwards from end of for loop, if number is divisible by 3, add Edit and Delete buttons to row.  -->
-                    {% if forloop.revcounter|divisibleby:col_num %}
-                    <td class="border-dark">
-                        <a href="{% url edit_url record %}" class="btn btn-primary">
-                            Edit {{table_item_name}}
-                        </a>
-                    </td>
-                    <td class="border-dark">
-                        <a href="{% url delete_url record %}" class="btn btn-danger">
-                            Delete {{table_item_name}}
-                        </a>
-                    </td>
-                    {% endif %}
+                            <th scope = "col" class="bg-primary text-white border-dark">
+                                Delete
+                            </th>
+                            {% for field in fields %}
+                                <th scope = "col" class="bg-primary text-white border-dark">
+                                    {{ field.name }}
+                                </th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- start of first table row -->
+                        <tr scope="row" class="border-primary">
+                        {% for record in records %}
+                        <!-- This counts backwards from end of for loop, if number is divisible by 3, add Edit and Delete buttons to row.  -->
+                        {% if forloop.revcounter|divisibleby:col_num %}
                         <td class="border-dark">
-                            {{record}}
+                            <a href="{% url edit_url record %}" class="btn btn-primary">
+                                Edit {{table_item_name}}
+                            </a>
                         </td>
-                        {% if forloop.counter|divisibleby:col_num %}
-                            <!-- Add in edit and delete buttons  -->
-                            <!-- End of last row -->
-                            </tr>
-                            <!-- Start of next row -->
-                            <tr scope="row">
+                        <td class="border-dark">
+                            <a href="{% url delete_url record %}" class="btn btn-danger">
+                                Delete {{table_item_name}}
+                            </a>
+                        </td>
                         {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
+                            <td class="border-dark">
+                                {{record}}
+                            </td>
+                            {% if forloop.counter|divisibleby:col_num %}
+                                <!-- Add in edit and delete buttons  -->
+                                <!-- End of last row -->
+                                </tr>
+                                <!-- Start of next row -->
+                                <tr scope="row">
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
