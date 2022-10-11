@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Employee
+from .forms import Employee_form
+
 
 def employee(request):
 
@@ -27,7 +29,17 @@ def employee(request):
 
 
 def add_employee(request):
-    return request(request, "workshifts.html")
+    if request.method == "POST":
+        form = Employee_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("employee")
+    form = Employee_form()
+    context = {
+        "form": form,
+        "table_item_name": "Employee"
+    }
+    return render(request, "add-employee.html", context)
 
 
 def edit_employee(request, employee_id):
