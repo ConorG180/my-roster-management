@@ -58,4 +58,6 @@ def edit_employee(request, employee_id):
 
 
 def delete_employee(request, employee_id):
-    return redirect("index")
+    employee = get_object_or_404(Employee, employee_id=employee_id)
+    employee.delete()
+    return redirect("employee")
