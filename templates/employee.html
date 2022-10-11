@@ -1,20 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>And I am the employee page (employee.html)</h1>
-<h2>Here is my model content:</h2>
-<ul>
-    {% for employee in employees %}
-        <li>{{employee.employee_id}}</li>
-        <li>{{employee.first_name}}</li>
-        <li>{{employee.last_name}}</li>
-        <li>{{employee.date_of_birth}}</li>
-        <li>{{employee.gender}}</li>
-        <li>{{employee.role}}</li>
-        <li>{{employee.pps_number}}</li>
-        <li>{{employee.phone_number}}</li>
-        <li>{{employee.email}}</li>
-        <li>{{employee.start_date}}</li>
-    {% endfor%}
-</ul>
+
+{% include "table.html" with fields=fields num_of_rows=num_of_employees records=all_employee_values col_num=col_num table_name=table_name table_item_name=table_item_name edit_url="edit_employee" delete_url="delete_employee" %}
+
+<div class="container">
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
+
+<a href="{% url 'add_employee' %}">
+    <button class="btn btn-primary btn-lg">
+        Add {{table_item_name}}
+    </button>
+</a>
+</div>
+</div>
+</div>
 {% endblock content %}
