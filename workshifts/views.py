@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Workshift
 from .forms import Workshift_form
 
@@ -41,7 +41,18 @@ def add_workshift(request):
     return render(request, "add-workshift.html", context)
 
 
-def edit_workshift(request, employee_id):
+def edit_workshift(request, workshift_id):
+    workshift = get_object_or_404(Workshift, workshift_id=workshift_id )
+    if request.method == "POST":
+        form = Workshift_form(request.POST, instance=workshift)
+        if form.is_valid():
+            form.save()
+            return redirect("workshift")
+    form = Workshift_form(instance=workshift)
+    context = {
+    "form": form,
+    "table_item_name": "workshift"
+    }
     return render(request, "edit-workshift.html", context)
 
 
