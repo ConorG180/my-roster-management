@@ -57,4 +57,6 @@ def edit_workshift(request, workshift_id):
 
 
 def delete_workshift(request, workshift_id):
+    workshift = get_object_or_404(Workshift, workshift_id=workshift_id)
+    workshift.delete()
     return redirect("workshift")
