@@ -22,6 +22,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                {% if user.is_authenticated %}
                 <ul class="navbar-nav ms-auto fs-1">
                     <li class="nav-item">
                         <h4>
@@ -40,10 +41,46 @@
                     </li>
                     <li class="nav-item">
                         <h4>
-                            <a href = "#" class="nav-link navlink" data-toggle="modal" data-target="#contact-modal">Contact</a>
+                            <a href = "#" class="nav-link navlink" data-toggle="modal" data-target="#contact-modal">
+                                Contact
+                            </a>
+                        </h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4>
+                            <a href="{% url 'account_logout' %}" class="nav-link navlink">
+                                Logout
+                            </a>
+                        </h4>
+                    </li>
+                    {% if user.is_staff %}
+                        <li class="nav-item">
+                            <h4>
+                                <a class="nav-link navlink" href="{% url 'account_signup' %}">
+                                    Register
+                                </a>
+                            </h4>
+                        </li>
+                    {% endif %}
+                </ul>
+                {% else %}
+                <ul class="navbar-nav ms-auto fs-1 text-white">
+                    <li class="nav-item">
+                        <h4>
+                            <a class="nav-link navlink" href="{% url 'account_login' %}">
+                                Login
+                            </a>
+                        </h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4>
+                            <a href="#" class="nav-link navlink" data-toggle="modal" data-target="#contact-modal">
+                                Contact
+                            </a>
                         </h4>
                     </li>
                 </ul>
+                {% endif %}
             </div>
         </div>
     </nav>
