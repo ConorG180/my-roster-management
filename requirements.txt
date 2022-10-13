@@ -1,11 +1,17 @@
 asgiref==3.5.2
 dj-database-url==1.0.0
 Django==3.2.15
+django-allauth==0.51.0
 django-phonenumber-field==7.0.0
 gunicorn==20.1.0
+oauthlib==3.2.1
 phonenumbers==8.12.56
 phonenumberslite==8.12.56
 psycopg2==2.9.3
+PyJWT==2.5.0
+python3-openid==3.2.0
 pytz==2022.2.1
+requests-oauthlib==1.3.1
 sqlparse==0.4.2
+types-cryptography==3.3.23
 whitenoise==6.2.0

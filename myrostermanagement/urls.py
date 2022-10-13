@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from roles import views as role_views
 from home.views import home
 from employees import views as employee_views
@@ -22,5 +22,6 @@ urlpatterns = [
     path('add-workshift/add', workshift_views.add_workshift, name="add_workshift"),
     path('edit-workshift/<workshift_id>', workshift_views.edit_workshift, name="edit_workshift"),
     path('delete-workshift/<workshift_id>', workshift_views.delete_workshift, name="delete_workshift"),
+    path('accounts/', include("allauth.urls"))
     # url - function - namespace: used in hrefs
 ]
