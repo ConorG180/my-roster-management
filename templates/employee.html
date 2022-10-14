@@ -2,18 +2,19 @@
 
 {% block content %}
 
-{% include "table.html" with fields=fields num_of_rows=num_of_employees records=all_employee_values col_num=col_num table_name=table_name table_item_name=table_item_name edit_url="edit_employee" delete_url="delete_employee" %}
+{% include "table.html" with fields=fields num_of_rows=num_of_employees records=all_employee_values col_num=col_num table_name=table_name table_item_name=table_item_name edit_url="edit_employee" delete_url="delete_employee" hidden_values_list=hidden_values_list hidden_fields=hidden_fields%} %}
 
 <div class="container">
-<div class="row">
-    <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
-
-<a href="{% url 'add_employee' %}">
-    <button class="btn btn-primary btn-lg">
-        Add {{table_item_name}}
-    </button>
-</a>
-</div>
-</div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
+        {% if user.is_staff %}
+            <a href="{% url 'add_employee' %}">
+                <button class="btn btn-primary btn-lg">
+                    Add {{table_item_name}}
+                </button>
+            </a>
+        {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock content %}
