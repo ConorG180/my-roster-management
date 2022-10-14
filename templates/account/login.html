@@ -3,14 +3,14 @@
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}{% endblock %}
 
 {% block content %}
 <!-- ////// containers etc. -->
 <h1>{% trans "Sign In" %}</h1>
 
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<p>{% blocktrans %}If you do not have an account, please contact your site
+  administrator to set this up for you.{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
