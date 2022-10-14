@@ -49,6 +49,12 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+# Needed so that a superuser or user that has staff_status = True can access the register page to add another user.
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+
+# Needed for custom sign_up form
+ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.SignupForm'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
