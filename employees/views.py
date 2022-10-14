@@ -9,6 +9,7 @@ def employee(request):
     fields = [field for field in Employee._meta.fields]
     employee_list = employees.values_list()
     employee_value_indexes = range(len(fields))
+    hidden_fields = ["date_of_birth", "gender", "pps_number", "phone_number", "email"]
 
     def employee_value_finder():
         all_employee_values = []
@@ -16,6 +17,15 @@ def employee(request):
             for index in employee_value_indexes:
                 all_employee_values.append(employee[index])
         return all_employee_values
+    
+    def get_hidden_values():
+        hidden_columns = hidden_fields
+        hidden_values_list = []
+        for hidden_column in hidden_columns:
+            hidden_values = Employee.objects.values(hidden_column)
+            for hidden_value in hidden_values:
+                hidden_values_list.append(hidden_value[hidden_column])                
+        return hidden_values_list
 
     context = {
         "fields": fields,
@@ -23,7 +33,9 @@ def employee(request):
         "num_of_employees": list(range(employees.count())),
         "col_num": len(fields),
         "table_name": "Employees",
-        "table_item_name": "Employee"
+        "table_item_name": "Employee",
+        "hidden_fields": hidden_fields,
+        "hidden_values_list": get_hidden_values()
     }
     return render(request, "employee.html", context)
 
@@ -43,7 +55,7 @@ def add_employee(request):
 
 
 def edit_employee(request, employee_id):
-    employee = get_object_or_404(Employee, employee_id=employee_id )
+    employee = get_object_or_404(Employee, employee_id=employee_id)
     if request.method == "POST":
         form = Employee_form(request.POST, instance=employee)
         if form.is_valid():
@@ -51,8 +63,8 @@ def edit_employee(request, employee_id):
             return redirect("employee")
     form = Employee_form(instance=employee)
     context = {
-    "form": form,
-    "table_item_name": "Employee"
+        "form": form,
+        "table_item_name": "Employee"
     }
     return render(request, "edit-employee.html", context)
 
