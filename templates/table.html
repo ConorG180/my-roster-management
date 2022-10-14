@@ -13,16 +13,23 @@
                     <thead>
                         <caption>List of {{table_name}}</caption>
                         <tr>
+                            <!-- Edit/Delete buttons only available to users with "is_staff" property set to True -->
+                            {% if user.is_staff %}
                             <th scope = "col" class="bg-primary text-white border-dark">
                                 Edit
                             </th>
                             <th scope = "col" class="bg-primary text-white border-dark">
                                 Delete
                             </th>
+                            {% endif %}
                             {% for field in fields %}
+                                {% if user.is_staff is False and field.name in hidden_fields %}
+                                    <!-- Don't do anything in this case -->
+                                {% else %}
                                 <th scope = "col" class="bg-primary text-white border-dark">
                                     {{ field.name }}
                                 </th>
+                                {% endif %}
                             {% endfor %}
                         </tr>
                     </thead>
@@ -30,8 +37,8 @@
                     <!-- start of first table row -->
                         <tr scope="row" class="border-primary">
                         {% for record in records %}
-                        <!-- This counts backwards from end of for loop, if number is divisible by 3, add Edit and Delete buttons to row.  -->
-                        {% if forloop.revcounter|divisibleby:col_num %}
+                        <!-- This counts backwards from end of for loop, if number is divisible by Column number, add Edit and Delete buttons to row.  -->
+                        {% if forloop.revcounter|divisibleby:col_num and user.is_staff %}
                         <td class="border-dark">
                             <a href="{% url edit_url record %}" class="btn btn-primary">
                                 Edit {{table_item_name}}
@@ -43,16 +50,19 @@
                             </a>
                         </td>
                         {% endif %}
-                            <td class="border-dark">
-                                {{record}}
-                            </td>
+                            {% if record in hidden_values_list and user.is_staff is False %}
+                                <!-- Don't print anything in this case -->
+                            {% else %}
+                                <td class="border-dark">
+                                    {{record}}
+                                </td>
+                            {% endif %}
                             {% if forloop.counter|divisibleby:col_num %}
-                                <!-- Add in edit and delete buttons  -->
                                 <!-- End of last row -->
                                 </tr>
                                 <!-- Start of next row -->
                                 <tr scope="row">
-                            {% endif %}
+                        {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
