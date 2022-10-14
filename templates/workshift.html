@@ -5,16 +5,17 @@
 {% include "table.html" with fields=fields num_of_rows=num_of_workshifts records=all_workshift_values col_num=col_num table_name=table_name table_item_name=table_item_name edit_url="edit_workshift" delete_url="delete_workshift" %}
 
 <div class="container">
-<div class="row">
-    <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
-
-<a href="{% url 'add_workshift' %}">
-    <button class="btn btn-primary btn-lg">
-        Add {{table_item_name}}
-    </button>
-</a>
-</div>
-</div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
+            {% if user.is_staff %}
+                <a href="{% url 'add_workshift' %}">
+                    <button class="btn btn-primary btn-lg">
+                        Add {{table_item_name}}
+                    </button>
+                </a>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock content %}
 
