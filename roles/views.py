@@ -8,6 +8,7 @@ def role(request):
     fields = [field for field in Role._meta.fields]
     role_list = roles.values_list()
     role_value_indexes = range(len(fields))
+    hidden_fields = ['hourly_wage']
 
     def role_value_finder():
         all_role_values = []
@@ -16,14 +17,26 @@ def role(request):
                 all_role_values.append(role[index])
         return all_role_values
 
+    def get_hidden_values():
+        hidden_columns = ["hourly_wage"]
+        hidden_values_list = []
+        for hidden_column in hidden_columns:
+            hidden_values = Role.objects.values(hidden_column)
+            for hidden_value in hidden_values:
+                hidden_values_list.append(hidden_value[hidden_column])                
+        return hidden_values_list
+
     context = {
         "fields": fields,
         "all_role_values": role_value_finder(),
         "num_of_roles": list(range(roles.count())),
         "col_num": len(fields),
         "table_name": "Roles",
-        "table_item_name": "Role"
+        "table_item_name": "Role",
+        "hidden_fields": hidden_fields,
+        "hidden_values_list": get_hidden_values()
     }
+    print(context["hidden_fields"])
     return render(request, "role-table.html", context)
 
 
@@ -41,7 +54,7 @@ def add_role(request):
 
 
 def edit_role(request, role_id):
-    role = get_object_or_404(Role, role_id=role_id )
+    role = get_object_or_404(Role, role_id=role_id)
     if request.method == "POST":
         form = Role_form(request.POST, instance=role)
         if form.is_valid():
