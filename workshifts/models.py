@@ -6,9 +6,11 @@ from employees.models import Employee
 
 class Workshift(models.Model):
     workshift_id = models.BigAutoField(primary_key=True)
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="employee_id_workshift_set") 
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="employee_id_workshift_set")
+    start_date = models.DateField()
+    start_time = models.TimeField()
+    end_date = models.DateField()
+    end_time = models.TimeField()
     role_id = models.ForeignKey(Role, on_delete=models.CASCADE, related_name="role_id_workshift_set") 
     created_on = models.DateTimeField(auto_now_add=True)
 
