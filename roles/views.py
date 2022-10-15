@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Role
 from .forms import Role_form
 
@@ -41,6 +41,8 @@ def role(request):
 
 
 def add_role(request):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     if request.method == "POST":
         form = Role_form(request.POST)
         if form.is_valid():
@@ -54,6 +56,8 @@ def add_role(request):
 
 
 def edit_role(request, role_id):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     role = get_object_or_404(Role, role_id=role_id)
     if request.method == "POST":
         form = Role_form(request.POST, instance=role)
@@ -69,6 +73,8 @@ def edit_role(request, role_id):
 
 
 def delete_role(request, role_id):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     role = get_object_or_404(Role, role_id=role_id)
     role.delete()
     return redirect("role_table")
