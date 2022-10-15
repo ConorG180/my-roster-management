@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Employee
 from .forms import Employee_form
 
@@ -41,6 +41,8 @@ def employee(request):
 
 
 def add_employee(request):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     if request.method == "POST":
         form = Employee_form(request.POST)
         if form.is_valid():
@@ -55,6 +57,8 @@ def add_employee(request):
 
 
 def edit_employee(request, employee_id):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     employee = get_object_or_404(Employee, employee_id=employee_id)
     if request.method == "POST":
         form = Employee_form(request.POST, instance=employee)
@@ -70,6 +74,8 @@ def edit_employee(request, employee_id):
 
 
 def delete_employee(request, employee_id):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     employee = get_object_or_404(Employee, employee_id=employee_id)
     employee.delete()
     return redirect("employee")
