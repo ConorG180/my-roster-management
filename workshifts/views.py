@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Workshift
 from .forms import Workshift_form
 
@@ -28,6 +28,8 @@ def workshift(request):
 
 
 def add_workshift(request):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     if request.method == "POST":
         form = Workshift_form(request.POST)
         if form.is_valid():
@@ -42,6 +44,8 @@ def add_workshift(request):
 
 
 def edit_workshift(request, workshift_id):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     workshift = get_object_or_404(Workshift, workshift_id=workshift_id )
     if request.method == "POST":
         form = Workshift_form(request.POST, instance=workshift)
@@ -57,6 +61,8 @@ def edit_workshift(request, workshift_id):
 
 
 def delete_workshift(request, workshift_id):
+    if request.user.is_staff is False:
+        return HttpResponse('Unauthorized', status=401)
     workshift = get_object_or_404(Workshift, workshift_id=workshift_id)
     workshift.delete()
     return redirect("workshift")
