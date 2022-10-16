@@ -42,7 +42,10 @@ def employee(request):
 
 def add_employee(request):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "add new employees"
+        }
+        return render(request, "account/signup_closed.html", context)
     if request.method == "POST":
         form = Employee_form(request.POST)
         if form.is_valid():
@@ -58,7 +61,10 @@ def add_employee(request):
 
 def edit_employee(request, employee_id):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "edit employees"
+        }
+        return render(request, "account/signup_closed.html", context)
     employee = get_object_or_404(Employee, employee_id=employee_id)
     if request.method == "POST":
         form = Employee_form(request.POST, instance=employee)
@@ -75,7 +81,10 @@ def edit_employee(request, employee_id):
 
 def delete_employee(request, employee_id):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "delete employees"
+        }
+        return render(request, "account/signup_closed.html", context)
     employee = get_object_or_404(Employee, employee_id=employee_id)
     employee.delete()
     return redirect("employee")
