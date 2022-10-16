@@ -29,7 +29,10 @@ def workshift(request):
 
 def add_workshift(request):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "add new workshifts"
+        }
+        return render(request, "account/signup_closed.html", context)
     if request.method == "POST":
         form = Workshift_form(request.POST)
         if form.is_valid():
@@ -45,7 +48,10 @@ def add_workshift(request):
 
 def edit_workshift(request, workshift_id):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "edit workshifts"
+        }
+        return render(request, "account/signup_closed.html", context)
     workshift = get_object_or_404(Workshift, workshift_id=workshift_id )
     if request.method == "POST":
         form = Workshift_form(request.POST, instance=workshift)
@@ -62,7 +68,10 @@ def edit_workshift(request, workshift_id):
 
 def delete_workshift(request, workshift_id):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "delete workshifts"
+        }
+        return render(request, "account/signup_closed.html", context)
     workshift = get_object_or_404(Workshift, workshift_id=workshift_id)
     workshift.delete()
     return redirect("workshift")
