@@ -36,3 +36,7 @@ An attractive footer is included in the programme to offer the user a simple way
 ### CRUD (Create, Read, Update, Delete) functionality
 On each table outlining the companies current records of employees, roles and scheduled workshifts, there are buttons which allow the user to manipulate these records. For example, a certified user may add a new employee and delete the replaced employee, and schedule their next workshift for when they wish.
 #### **Images**  
+
+### Account creation and login/logout functionality
+The superuser will have the ability to create accounts for users, and will also have the ability to use CRUD functionality on the company's data. When creating a user, the superuser will also have the ability to grant these same permissions to the new user. This will prevent unauthorised users from editing/creating/deleting records, and also prevent them from registering other users.
+#### **Images**  
