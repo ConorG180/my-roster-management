@@ -1,10 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Edit {{table_item_name}}</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Add {{table_item_name}}</button>
-</form>
+<div class="container-md container-fluid">
+    <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col d-flex flex-column text-center mt-lg-5 mb-3">
+            <h1 class="mb-4">Edit {{table_item_name}}</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary btn-lg align-center mx-auto mt-4">
+                    Update {{table_item_name}}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}
