@@ -53,6 +53,7 @@ def add_role(request):
             return redirect("role_table")
     form = Role_form()
     context = {
+        "table_item_name": "Role",
         "form": form
     }
     return render(request, "add-role.html", context)
