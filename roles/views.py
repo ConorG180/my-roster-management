@@ -42,7 +42,10 @@ def role(request):
 
 def add_role(request):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "add new roles"
+        }
+        return render(request, "account/signup_closed.html", context)
     if request.method == "POST":
         form = Role_form(request.POST)
         if form.is_valid():
@@ -57,7 +60,10 @@ def add_role(request):
 
 def edit_role(request, role_id):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "edit roles"
+        }
+        return render(request, "account/signup_closed.html", context)
     role = get_object_or_404(Role, role_id=role_id)
     if request.method == "POST":
         form = Role_form(request.POST, instance=role)
@@ -74,7 +80,10 @@ def edit_role(request, role_id):
 
 def delete_role(request, role_id):
     if request.user.is_staff is False:
-        return HttpResponse('Unauthorized', status=401)
+        context = {
+            "action": "delete roles"
+        }
+        return render(request, "account/signup_closed.html", context)
     role = get_object_or_404(Role, role_id=role_id)
     role.delete()
     return redirect("role_table")
