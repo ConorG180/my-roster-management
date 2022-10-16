@@ -55,6 +55,8 @@ ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
 # Needed for custom sign_up form
 ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.SignupForm'
 
+ACCOUNT_ADAPTER = 'accounts.my_account_adaptor.NoNewUsersAccountAdapter'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
