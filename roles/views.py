@@ -41,16 +41,28 @@ def role(request):
 
 
 def add_role(request):
+
+    # Make sure user is authorised to add records
     if request.user.is_staff is False:
         context = {
             "action": "add new roles"
         }
         return render(request, "account/signup_closed.html", context)
+
     if request.method == "POST":
         form = RoleForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("role_table")
+
+        # Rerender page if information not correct and print errors
+        else:
+            context = {
+                "form": form,
+                "table_item_name": "Employee",
+                }
+            return render(request, "add-employee.html", context)
+
     form = RoleForm()
     context = {
         "table_item_name": "Role",
@@ -60,17 +72,29 @@ def add_role(request):
 
 
 def edit_role(request, role_id):
+
+    # Make sure user is authorised to edit records
     if request.user.is_staff is False:
         context = {
             "action": "edit roles"
         }
         return render(request, "account/signup_closed.html", context)
+        
     role = get_object_or_404(Role, role_id=role_id)
     if request.method == "POST":
         form = RoleForm(request.POST, instance=role)
         if form.is_valid():
             form.save()
             return redirect("role_table")
+
+        # Rerender page if information not correct and print errors
+        else:
+            context = {
+                "form": form,
+                "table_item_name": "Role",
+                }
+            return render(request, "edit-role.html", context)
+
     form = RoleForm(instance=role)
     context = {
     "form": form,
@@ -85,6 +109,7 @@ def delete_role(request, role_id):
             "action": "delete roles"
         }
         return render(request, "account/signup_closed.html", context)
+
     role = get_object_or_404(Role, role_id=role_id)
     role.delete()
     return redirect("role_table")
