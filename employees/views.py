@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Employee
-from .forms import Employee_form
+from .forms import Employeeform
 
 
 def employee(request):
@@ -46,12 +46,14 @@ def add_employee(request):
             "action": "add new employees"
         }
         return render(request, "account/signup_closed.html", context)
+        
     if request.method == "POST":
-        form = Employee_form(request.POST)
+        form = Employeeform(request.POST)
         if form.is_valid():
             form.save()
             return redirect("employee")
-    form = Employee_form()
+            
+    form = Employeeform()
     context = {
         "form": form,
         "table_item_name": "Employee"
@@ -67,11 +69,11 @@ def edit_employee(request, employee_id):
         return render(request, "account/signup_closed.html", context)
     employee = get_object_or_404(Employee, employee_id=employee_id)
     if request.method == "POST":
-        form = Employee_form(request.POST, instance=employee)
+        form = Employeeform(request.POST, instance=employee)
         if form.is_valid():
             form.save()
             return redirect("employee")
-    form = Employee_form(instance=employee)
+    form = Employeeform(instance=employee)
     context = {
         "form": form,
         "table_item_name": "Employee"

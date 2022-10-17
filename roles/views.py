@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Role
-from .forms import Role_form
+from .forms import RoleForm
 
 
 def role(request):
@@ -47,11 +47,11 @@ def add_role(request):
         }
         return render(request, "account/signup_closed.html", context)
     if request.method == "POST":
-        form = Role_form(request.POST)
+        form = RoleForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("role_table")
-    form = Role_form()
+    form = RoleForm()
     context = {
         "table_item_name": "Role",
         "form": form
@@ -67,11 +67,11 @@ def edit_role(request, role_id):
         return render(request, "account/signup_closed.html", context)
     role = get_object_or_404(Role, role_id=role_id)
     if request.method == "POST":
-        form = Role_form(request.POST, instance=role)
+        form = RoleForm(request.POST, instance=role)
         if form.is_valid():
             form.save()
             return redirect("role_table")
-    form = Role_form(instance=role)
+    form = RoleForm(instance=role)
     context = {
     "form": form,
     "table_item_name": "Role"

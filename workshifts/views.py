@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Workshift
-from .forms import Workshift_form
+from .forms import WorkshiftForm
+
 
 def workshift(request):
 
@@ -34,11 +35,11 @@ def add_workshift(request):
         }
         return render(request, "account/signup_closed.html", context)
     if request.method == "POST":
-        form = Workshift_form(request.POST)
+        form = WorkshiftForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("workshift")
-    form = Workshift_form()
+    form = WorkshiftForm()
     context = {
         "form": form,
         "table_item_name": "Workshift"
@@ -54,11 +55,11 @@ def edit_workshift(request, workshift_id):
         return render(request, "account/signup_closed.html", context)
     workshift = get_object_or_404(Workshift, workshift_id=workshift_id )
     if request.method == "POST":
-        form = Workshift_form(request.POST, instance=workshift)
+        form = WorkshiftForm(request.POST, instance=workshift)
         if form.is_valid():
             form.save()
             return redirect("workshift")
-    form = Workshift_form(instance=workshift)
+    form = WorkshiftForm(instance=workshift)
     context = {
     "form": form,
     "table_item_name": "workshift"

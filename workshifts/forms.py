@@ -10,7 +10,7 @@ class TimeInput(forms.TimeInput):
     input_type = "time"
 
 
-class Workshift_form(forms.ModelForm):
+class WorkshiftForm(forms.ModelForm):
     start_date = forms.DateField(widget=DateInput)
     start_time = forms.TimeField(widget=TimeInput)
     end_date = forms.DateField(widget=DateInput)

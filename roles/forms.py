@@ -6,7 +6,7 @@ class DecimalInput(forms.NumberInput):
     input_type = "number"
 
 
-class Role_form(forms.ModelForm):
+class RoleForm(forms.ModelForm):
     hourly_wage = forms.DecimalField(widget=DecimalInput)
 
     class Meta:
