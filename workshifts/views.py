@@ -29,16 +29,28 @@ def workshift(request):
 
 
 def add_workshift(request):
+
+    # Make sure user is authorised to add records
     if request.user.is_staff is False:
         context = {
             "action": "add new workshifts"
         }
         return render(request, "account/signup_closed.html", context)
+        
     if request.method == "POST":
         form = WorkshiftForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("workshift")
+
+        # Rerender page if information not correct and print errors
+        else:
+            context = {
+                "form": form,
+                "table_item_name": "Workshift",
+                }
+            return render(request, "add-workshift.html", context)
+
     form = WorkshiftForm()
     context = {
         "form": form,
@@ -48,17 +60,29 @@ def add_workshift(request):
 
 
 def edit_workshift(request, workshift_id):
+    
+    # Make sure user is authorised to edit records
     if request.user.is_staff is False:
         context = {
             "action": "edit workshifts"
         }
         return render(request, "account/signup_closed.html", context)
+
     workshift = get_object_or_404(Workshift, workshift_id=workshift_id )
     if request.method == "POST":
         form = WorkshiftForm(request.POST, instance=workshift)
         if form.is_valid():
             form.save()
             return redirect("workshift")
+
+        # Rerender page if information not correct and print errors
+        else:
+            context = {
+                "form": form,
+                "table_item_name": "Employee",
+                }
+            return render(request, "edit-employee.html", context)
+
     form = WorkshiftForm(instance=workshift)
     context = {
     "form": form,
