@@ -41,6 +41,8 @@ def employee(request):
 
 
 def add_employee(request):
+
+    # Make sure user is authorised to add records
     if request.user.is_staff is False:
         context = {
             "action": "add new employees"
@@ -52,7 +54,15 @@ def add_employee(request):
         if form.is_valid():
             form.save()
             return redirect("employee")
-            
+
+            # Rerender page if information not correct and print errors
+        else:
+            context = {
+                "form": form,
+                "table_item_name": "Employee",
+                }
+            return render(request, "add-employee.html", context)
+
     form = Employeeform()
     context = {
         "form": form,
@@ -62,17 +72,29 @@ def add_employee(request):
 
 
 def edit_employee(request, employee_id):
+
+    # Make sure user is authorised to edit records
     if request.user.is_staff is False:
         context = {
             "action": "edit employees"
         }
         return render(request, "account/signup_closed.html", context)
+
     employee = get_object_or_404(Employee, employee_id=employee_id)
     if request.method == "POST":
         form = Employeeform(request.POST, instance=employee)
         if form.is_valid():
             form.save()
             return redirect("employee")
+
+        # Rerender page if information not correct and print errors
+        else:
+            context = {
+                "form": form,
+                "table_item_name": "Employee",
+                }
+            return render(request, "edit-employee.html", context)
+
     form = Employeeform(instance=employee)
     context = {
         "form": form,
@@ -87,6 +109,7 @@ def delete_employee(request, employee_id):
             "action": "delete employees"
         }
         return render(request, "account/signup_closed.html", context)
+        
     employee = get_object_or_404(Employee, employee_id=employee_id)
     employee.delete()
     return redirect("employee")
