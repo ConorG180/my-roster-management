@@ -48,3 +48,23 @@ As mentioned above, the programme is designed so that only authorised users can 
 ### Form validation
 When adding or editing a company record, a form which contains incorrect or invalid data will be displayed back and an error message will be displayed to the user. This will let the user know why the form didn't submit correctly and allow them to easily correct their mistake before commiting the data to the database, thereby aiding in preventing invalid data being saved.
 #### **Images**  
+
+## Future features
+
+### Calendar
+A future feature to be included within the software will be a calendar view of the company's current week and month, which will display all employees set to work that day and also the times of their workshift. This feature was planned to allow the user/admin of the website to accurately plan how many employees they will have working on a certain day, and forecast any changes that may present themselves eg. a wedding in a restauraunt will require more employees than a normal day. With the calendar, an admin user will easily be able to see how many employees are working on that day, and plan accordingly. Likewise, they will also be able to lower the number of workshifts should there be a cancellation.  
+
+This will also allow employees to see who is working at which times, which will allow them to request to swap shifts with their colleagues.
+
+This feature was planned at the beginning of the project and a wireframe was created to express the idea visually, which can be seen below.  
+#### **Images** 
+![calendar.html wireframe](static/wireframes/calendar-monthly-view.png "calendar.html (Calendar monthly view)")
+
+### Calendar day view
+Another feature which extends from the calendar feature, was to include a way for the admin user to view each day separately. This feature was included so as to allow the user to see more details about a certain day. For example, each employee would have a visual representation (Similar to a bar chart) showing their exact working time. Furthermore, according to an employee's role, this bar would be color-coded, allowing the user to easily see the quantity of a certain role/skill would be present and working on the day. This feature, like the calendar, was also planned at the beginning of the project, and a wireframe was created to express the idea visually.  
+#### **Images**
+![calendar.html wireframe](static/wireframes/calendar-daily-view.png "calendar.html (Calendar daily view)")
+
+### Automated email confirmation of workshift
+In the future, automated emails may be implemented to notify employees who are scheduled to work on certain days. This feature would work by sending an email to the employee's recorded email address, and notifying them on what day and at what times they are scheduled to work. The email would be sent as soon as the workshift is scheduled by the admin user.   
+#### **Images**
