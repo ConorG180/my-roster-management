@@ -64,7 +64,3 @@ This feature was planned at the beginning of the project and a wireframe was cre
 Another feature which extends from the calendar feature, was to include a way for the admin user to view each day separately. This feature was included so as to allow the user to see more details about a certain day. For example, each employee would have a visual representation (Similar to a bar chart) showing their exact working time. Furthermore, according to an employee's role, this bar would be color-coded, allowing the user to easily see the quantity of a certain role/skill would be present and working on the day. This feature, like the calendar, was also planned at the beginning of the project, and a wireframe was created to express the idea visually.  
 #### **Images**
 ![calendar.html wireframe](static/wireframes/calendar-daily-view.png "calendar.html (Calendar daily view)")
-
-### Automated email confirmation of workshift
-In the future, automated emails may be implemented to notify employees who are scheduled to work on certain days. This feature would work by sending an email to the employee's recorded email address, and notifying them on what day and at what times they are scheduled to work. The email would be sent as soon as the workshift is scheduled by the admin user.   
-#### **Images**
