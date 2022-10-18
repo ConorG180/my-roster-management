@@ -1,9 +1,11 @@
-<!-- Add picture/banner of programme here -->
+![My-Roster-Management logo](static/images/my-roster-management-logo.png "My-Roster-Management logo")
+
 <!-- Add Table of Contents here -->
 # MyRosterManagement
 MyRosterManagement is a programme designed for SME's (Small and Medium Enterprises) to aid them in staff and roster management. The main purpose the software serves is to allow managers/shift supervisors to schedule and set up shifts for employees at certain times on certain days. It is designed to aid managers/shift supervisors in not only the planning and scheduling of shifts of the company's workforce, but will also allow them to create/edit/delete roles and employees too, should circumstances for the companies change.  
 Another purpose the programme will serve is to easily view the different days and months of the year, and allow managers to visualise how the workforce is scheduled on certain days and weeks. From this, managers can then tactically decide if they require more/less staff. While able to be used for any SME, it is expected to be especially useful to SMEs which incorporate and heavily rely on shift work, such as bars, restauraunts, supermarkets, shops, cafes, warehouses and courier services.  
-The full <!-- **[Insert Name here later](InsertLinkToProjectHereLater)** --> programme can be accessed here.
+
+The full [My-Roster-Management](https://my-roster-management.herokuapp.com/). programme can be accessed here.
 
 # UX design
 ## Color scheme
@@ -16,6 +18,7 @@ The grid feature in bootstrap was used to easily and efficiently provide a respo
 
 # Wireframes
 Before starting development on MyRosterManagement, Balsamiq was used to form wireframes for each separate page within the programme. Basamiq was chosen due to it's efficiency and it's ability to reproduce relatively simplistic, yet easy to understand wireframes. This helped me to visualise ideas for each of the programmes pages and features, and organise how certain features would be laid out and implemented within the programme. Each wireframe created prior to development can be seen below:  
+
 ![index.html wireframe](static/wireframes/home.png "index.html (Home page)")
 ![employees.html wireframe](static/wireframes/employees.png "employees.html (Employees page)")
 ![roles.html wireframe](static/wireframes/roles.png "roles.html (Roles page)")
@@ -25,38 +28,74 @@ Before starting development on MyRosterManagement, Balsamiq was used to form wir
 
 # Entity Relationship Diagram
 Before starting development on MyRosterManagement, diagrams.net/draw.io was used to form an Entity Relationship Diagram (ERD) for the programme. As the programme relies heavily on models and databases, an ERD helped immensely in determining how to structure the database, including aiding in aspects such as relationships between tables, primary and foreign keys, and selecting fields for various tables. The ERD can be seen below:  
+
 ![MyRosterManagement ERD](static/entity-relationship-diagrams/my-roster-management-entity-relationship-diagram.drawio.png "MyRosterManagement ERD")
 
 # Features
 ## Existing features
 
 ### Navigation
-The programme offers a very simple and easy to use navigation system to navigate around the programme. This is not only in the form of moving to different pages, but also for features such as a contact modal and large buttons under each relevant table to manipulate the user's database.
+The programme offers a very simple and easy to use navigation system to navigate around the programme. This is not only in the form of moving to different pages, but also for features such as a contact modal and large buttons under each relevant table to manipulate the user's database. The navbar will look slightly different depending on wether the user is logged in as an admin-user, a non-admin user, or logged out.
 #### **Images**  
+##### **Logged in as Admin**
+![navigation bar logged in as admin](static/images/navigation-bar-logged-in-as-admin.png "navigation bar logged in as admin")
+##### **Logged in as non-Admin**
+![navigation bar logged in as non-admin](static/images/navigation-bar-logged-in-as-non-admin.png "navigation bar logged in as non-admin")
+##### **Logged out**
+![navigation bar logged out](static/images/navigation-bar-logged-out.png "navigation bar logged out")
+
+##### **Table buttons**
+![table navigation buttons](static/images/navigation-buttons.png "table navigation buttons")
 
 ### Contact us modal
-Should any users experience any difficulty in using the software, there is a "Contact" modal which can be accessed on the navigation bar. This allows the user to contact the company via phone or email, and also offers means of contacting the company through social media pages.
+Should users experience any difficulty in using the software, there is a "Contact" modal which can be accessed on the navigation bar. This allows the user to contact the company via phone or email, and also offers means of contacting the company through social media pages.
 #### **Images**  
+![contact modal](static/images/contact-modal.png "contact modal")
 
 ### Footer
 An attractive footer is included in the programme to offer the user a simple way of easily navigating to the social media pages of the company.
 #### **Images**  
+![footer](static/images/footer.png "footer")
 
 ### CRUD (Create, Read, Update, Delete) functionality
-On each table outlining the companies current records of employees, roles and scheduled workshifts, there are buttons which allow the user to manipulate these records. For example, a certified user may add a new employee and delete the replaced employee, and schedule their next workshift for when they wish.
+On each table outlining the companies current records of employees, roles and scheduled workshifts, there are buttons which allow the user to manipulate these records. For example, an authorized user may add a new employee and delete the replaced employee, and edit any details about the new employee if they wish.
 #### **Images**  
+##### **CRUD functionality on table**
+![crud functionality displayed on employee table](static/images/crud-functionality-employee-table.png "crud functionality displayed on employee table")
+##### **Adding record form**
+![adding record to table form](static/images/crud-functionality-add-employee-form.png "adding record to table form")
+##### **Editing record form**
+![editing record on table form](static/images/crud-functionality-edit-employee-form.png "editing record on table form")
 
 ### Account creation and login/logout functionality
-The superuser will have the ability to create accounts for users, and will also have the ability to use CRUD functionality on the company's data. When creating a user, the superuser will also have the ability to grant these same permissions to the new user. This will prevent unauthorised users from editing/creating/deleting records, and also prevent them from registering other users.
+The superuser will have the ability to create accounts for users, and will also have the ability to use CRUD functionality on the company's data. When creating a user, the superuser will also have the ability to grant these same permissions to the new user. This will prevent unauthorised users from editing/creating/deleting records, and also prevent them from registering other users.  
+
+Registered users can then log into the programme using their username and password, and will have different permissions depending on wether they are authorized or not.  
 #### **Images**  
+##### **Account registration form**
+![register user form](static/images/register-user-form.png "register user form")
+
+##### **Signin form**
+![signin form](static/images/signin-form.png "signin form")
+
+##### **Signout confirmation**
+![signout confirmation](static/images/signout-confirmation.png "signout confirmation")
 
 ### User permissions
-As mentioned above, the programme is designed so that only authorised users can use CRUD functionality and create new users. Therefore, it is important that unauthorised users of the programme can access the information they need to gain benefit from the programme, but cannot see more personal details of the company, such as wages and employee phone numbers etc. And cannot use CRUD functionality on records. To solve this problem, all edit/delete/add buttons on each table have been hidden to unauthorised users. Furthermore, attempting to brute-force to certain URLs when logged in as an unauthorised user will simply return an `unauthorised.html` page and block the user from accessing CRUD functionality. This includes the `accounts/signup/` URL should an unauthorised user attempt to create a new user, as this could easily allow the programme to be hacked. When logged in as an unauthorised user, certain columns of certain tables are also hidden to prevent PPI (Private and Personal Information) from being accessed.
+As mentioned above, the programme is designed so that only authorised users can use CRUD functionality and create new users. Therefore, it is important that unauthorised users of the programme can access the information they need to gain benefit from the programme, but cannot see more personal details of the company, such as wages and employee phone numbers etc. and cannot use CRUD functionality on records. To solve this problem, all edit/delete/add buttons on each table have been hidden to unauthorised users. Furthermore, attempting to brute-force to certain URLs when logged in as an unauthorised user will simply return an `unauthorised.html` page and block the user from accessing CRUD functionality. This includes the `accounts/signup/` URL should an unauthorised user attempt to create a new user, as this could easily allow the programme to be hacked. When logged in as an unauthorised user, certain columns of certain tables are also hidden to prevent PPI (Private and Personal Information) from being accessed.
 #### **Images**  
 
+##### **Unauthorized user view of table**
+![Unauthorized user view of table](static/images/unauthorized-user-view-of-employee-table.png "Unauthorized user view of table")
+
+##### **Unauthorized message if brute-forcing a URL is attempted**
+![Unauthorized message if attempting to brute-force a URL](static/images/unauthorized-view-from-brute-forcing-url.png "Unauthorized message if attempting to brute-force a URL")
+
 ### Form validation
-When adding or editing a company record, a form which contains incorrect or invalid data will be displayed back and an error message will be displayed to the user. This will let the user know why the form didn't submit correctly and allow them to easily correct their mistake before commiting the data to the database, thereby aiding in preventing invalid data being saved.
+When adding or editing a company record, a form which contains incorrect or invalid data will be displayed back and an error message will be displayed to the user. This will let the user know why the form didn't submit correctly and allow them to easily correct their mistake before commiting the data to the database, thereby aiding in preventing invalid data being saved.  
 #### **Images**  
+![form validation type 1](static/images/form-validation-type-1.png "form validation type 1")
+![form validation type 2](static/images/form-validation-type-2.png "form validation type 2")
 
 ## Future features
 
@@ -76,7 +115,6 @@ Another feature which extends from the calendar feature, was to include a way fo
 
 ### Automated email confirmation of workshift
 In the future, automated emails may be implemented to notify employees who are scheduled to work on certain days. This feature would work by sending an email to the employee's recorded email address, and notifying them on what day and at what times they are scheduled to work. The email would be sent as soon as the workshift is scheduled by the admin user.   
-#### **Images**  
 
 
 # Technologies, frameworks, packages and libraries used
