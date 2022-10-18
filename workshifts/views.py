@@ -43,7 +43,7 @@ def add_workshift(request):
             form.save()
             return redirect("workshift")
 
-        # Rerender page if information not correct and print errors
+        # Rerender page if information not correct and display errors
         else:
             context = {
                 "form": form,
@@ -75,7 +75,7 @@ def edit_workshift(request, workshift_id):
             form.save()
             return redirect("workshift")
 
-        # Rerender page if information not correct and print errors
+        # Rerender page if information not correct and display errors
         else:
             context = {
                 "form": form,

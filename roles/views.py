@@ -36,7 +36,6 @@ def role(request):
         "hidden_fields": hidden_fields,
         "hidden_values_list": get_hidden_values()
     }
-    print(context["hidden_fields"])
     return render(request, "role-table.html", context)
 
 
@@ -55,7 +54,7 @@ def add_role(request):
             form.save()
             return redirect("role_table")
 
-        # Rerender page if information not correct and print errors
+        # Rerender page if information not correct and display errors
         else:
             context = {
                 "form": form,
@@ -87,7 +86,7 @@ def edit_role(request, role_id):
             form.save()
             return redirect("role_table")
 
-        # Rerender page if information not correct and print errors
+        # Rerender page if information not correct and display errors
         else:
             context = {
                 "form": form,

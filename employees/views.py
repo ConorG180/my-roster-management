@@ -55,7 +55,7 @@ def add_employee(request):
             form.save()
             return redirect("employee")
 
-            # Rerender page if information not correct and print errors
+            # Rerender page if information not correct and display errors
         else:
             context = {
                 "form": form,
@@ -87,7 +87,7 @@ def edit_employee(request, employee_id):
             form.save()
             return redirect("employee")
 
-        # Rerender page if information not correct and print errors
+        # Rerender page if information not correct and display errors
         else:
             context = {
                 "form": form,
