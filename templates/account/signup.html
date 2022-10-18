@@ -10,8 +10,6 @@
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col d-flex flex-column text-center mt-lg-5 mb-3 bg-white rounded">
 <h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
