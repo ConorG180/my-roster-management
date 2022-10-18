@@ -67,4 +67,24 @@ Another feature which extends from the calendar feature, was to include a way fo
 
 ### Automated email confirmation of workshift
 In the future, automated emails may be implemented to notify employees who are scheduled to work on certain days. This feature would work by sending an email to the employee's recorded email address, and notifying them on what day and at what times they are scheduled to work. The email would be sent as soon as the workshift is scheduled by the admin user.   
-#### **Images**
+#### **Images**  
+
+
+# Technologies, frameworks, packages and libraries used
+The following technologies were used in the development of this project:  
+  - [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) - HTML5 was used to apply the structure and to create the elements within the programme.
+  - [Bootstrap](https://getbootstrap.com/) - Bootstrap was used for the majority of the styling and layout in the programme. Within bootstrap, there are also elements of JavaScript used, such as in the modal. This JavaScript is included within the Bootstrap framework.
+  - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Custom CSS was used to add some custom styling to the programme, such as the distinctive orange styling used within the brand logo and the custom color of the social media icons.
+  - [Balsamiq](https://balsamiq.com/) - Balsamiq was used to create wireframes at the beginning of the project and aided in visualising ideas and features of the MyRosterManagement programme.
+  - [Git](https://git-scm.com/) - Git was used for version control throughout this project.
+  - [Gitpod](https://www.gitpod.io/) - Gitpod was used as the integrated developement environment for the project and to deploy the software.
+  - [Github](https://github.com/) - Github was used store the project repository.
+  - [Heroku](https://www.heroku.com) - This project was deployed using Heroku, a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+  - [Python](https://www.python.org/) - was used throughout this programme in conjunction with other python-based packages and libraries to create the core functionality behind the programme. 
+  - [Django](https://www.djangoproject.com/) - The Django framework for python was used to build many of the web development aspects of the programme, including user authentication, content administration and ORM.
+  - [PostgreSQL](https://www.postgresql.org/) - PostgreSQL was used as an Object-relational database system in the project, and through ORM (Object-relational mapping) records were able to be Created, Read, Updated and Deleted (CRUD) from the PostgreSQL database.
+  - [WhiteNoise](http://whitenoise.evans.io/en/stable/) - WhiteNoise was used as a means to allow the project to serve its own static files, as this is not possible with Django.
+  - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/) - The django-allauth package was used to create the authentication, account registration and account management within the programme.
+  - [Psycopg2](https://pypi.org/project/psycopg2/) - Psycopg2 was used as an adaptor for PostgreSQL, to ensure that it will work and integrate with Python and Django.
+  - [Gunicorn](https://gunicorn.org/) - Gunicorn was used for the WSGI HTTP server for the project
+  - [Django-phonenumber-field](https://pypi.org/project/django-phonenumber-field/) - Django-phonenumber-field was used to for simple authentication and validation of phone numbers stored within models and used within forms throughout the programme.
