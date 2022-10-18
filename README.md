@@ -5,6 +5,15 @@ MyRosterManagement is a programme designed for SME's (Small and Medium Enterpris
 Another purpose the programme will serve is to easily view the different days and months of the year, and allow managers to visualise how the workforce is scheduled on certain days and weeks. From this, managers can then tactically decide if they require more/less staff. While able to be used for any SME, it is expected to be especially useful to SMEs which incorporate and heavily rely on shift work, such as bars, restauraunts, supermarkets, shops, cafes, warehouses and courier services.  
 The full <!-- **[Insert Name here later](InsertLinkToProjectHereLater)** --> programme can be accessed here.
 
+# UX design
+## Color scheme
+The color scheme chosen for this programme is based on a simple color scheme of blue, white and various shades of orange. Colors are used rather sparingly in the programme so as to portray a more professional and non-distracting aesthetic. Whilst it may be beneficial to create eye-catching designs in certain projects (Such as a website landing page) it was concluded that ease-of-use and practicality was of more importance in this specific project.  
+Bootstrap is used in the programme so as to easily and efficiently style the various template HTML files. There is also a custom styles.css file to allow for custom styling amongst bootstrap's default files, such as the the brand color of orange used in the logo and hover effects on the buttons. 
+
+## Layout
+The grid feature in bootstrap was used to easily and efficiently provide a responsive layout for the website. Bootstraps grid system is based and built from the CSS flexbox feature. This layout was chosen for a number of reasons. Using the grid feature within Bootstrap, elements within the project can very easily be manipulated, hidden, unhidden, swapped, replaced or repositioned in the future if needed. This is especially handy when working on a layout for smaller devices, as certain elements which are not deemed necessary can be hidden if needed, and be prevented from taking up excess space on smaller screens. Furthermore, the very nature of Bootstraps grid is based on a mobile-first design, which easily allows the project to be built responsively and work on devices of all sizes.
+
+
 # Wireframes
 Before starting development on MyRosterManagement, Balsamiq was used to form wireframes for each separate page within the programme. Basamiq was chosen due to it's efficiency and it's ability to reproduce relatively simplistic, yet easy to understand wireframes. This helped me to visualise ideas for each of the programmes pages and features, and organise how certain features would be laid out and implemented within the programme. Each wireframe created prior to development can be seen below:  
 ![index.html wireframe](static/wireframes/home.png "index.html (Home page)")
@@ -81,7 +90,7 @@ The following technologies were used in the development of this project:
   - [Github](https://github.com/) - Github was used store the project repository.
   - [Heroku](https://www.heroku.com) - This project was deployed using Heroku, a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
   - [Python](https://www.python.org/) - was used throughout this programme in conjunction with other python-based packages and libraries to create the core functionality behind the programme. 
-  - [Django](https://www.djangoproject.com/) - The Django framework for python was used to build many of the web development aspects of the programme, including user authentication, content administration and ORM.
+  - [Django](https://www.djangoproject.com/) - The Django framework for python was used to build many of the web development aspects of the programme, including user authentication and content administration, and also allowed the use of ORM to manipulate the database.
   - [PostgreSQL](https://www.postgresql.org/) - PostgreSQL was used as an Object-relational database system in the project, and through ORM (Object-relational mapping) records were able to be Created, Read, Updated and Deleted (CRUD) from the PostgreSQL database.
   - [WhiteNoise](http://whitenoise.evans.io/en/stable/) - WhiteNoise was used as a means to allow the project to serve its own static files, as this is not possible with Django.
   - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/) - The django-allauth package was used to create the authentication, account registration and account management within the programme.
