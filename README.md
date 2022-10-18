@@ -128,3 +128,16 @@ For Heroku deployment, follow these steps to connect your GitHub repository to t
 - After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type: `git push heroku main`
 ​
 The frontend terminal should now be connected and deployed to Heroku.
+
+# Credits
+## Content
+The sources below were used when trying to solve intricate problems within the programme and played a solid role in helping me to build this project.
+  - [W3schools](https://www.w3schools.com/) was used as a learning resource to learn more about various python functions and concepts, and also assisted in learning about the intricacies of Django and the Jinja templating language.
+  - The [Django documentation](https://docs.djangoproject.com/en/4.1/) was extremely helpful in solving problems, as it allowed me to research in detail about the various features and capabilities that Django has to offer.  
+  - Corey Schafer's [Youtube channel](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) was instrumental in assisting me when working with python and Django, and allowed me to fully utilise the technologies in my programme.
+  - [Stack Overflow](https://stackoverflow.com/) was used as a learning resource and helped me with any questions I had whilst building the project. It was also used to look through existing questions asked by users who had similar problems/issues to those which were faced when building this project.
+
+## Acknowledgements
+I want to thank the following people and companies for their help in providing solid technical support whilst developing this project.
+  - Tim Nelson (Code Institute mentor).
+  - [Code Institute](https://codeinstitute.net/ie/).
