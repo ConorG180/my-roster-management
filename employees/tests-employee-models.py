@@ -1,7 +1,7 @@
 from django.test import TestCase
 from .models import Employee
 
-class TestEmployeeView(TestCase):
+class TestEmployeeModel(TestCase):
 
     def test_pps_number_is_unique_in_employee_model(self):
         unique_constraint = Employee._meta.get_field("pps_number").unique

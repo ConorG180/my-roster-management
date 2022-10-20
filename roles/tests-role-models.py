@@ -1,7 +1,7 @@
 from django.test import TestCase
 from .models import Role
 
-class TestRoleModal(TestCase):
+class TestRoleModel(TestCase):
 
     def test_title_is_less_than_50_characters_in_employee_model(self):
         max_length = Role._meta.get_field("title").max_length
