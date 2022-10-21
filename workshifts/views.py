@@ -1,16 +1,25 @@
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+"""Workshift view"""
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Workshift
 from .forms import WorkshiftForm
 
 
-def workshift(request):
-
+def workshift_table(request):
+    """Function for employee table view"""
     workshifts = Workshift.objects.all().order_by("workshift_id")
     fields = [field for field in Workshift._meta.fields]
     workshift_list = workshifts.values_list()
     workshift_value_indexes = range(len(fields))
 
     def workshift_value_finder():
+
+        """Loops through list of workshifts and then grabs each value from
+        workshift by looping again (A nested loop) through the workshift.
+        The nested loop will always be equal to the number of values of
+        the workshift, as the nested loop is defined as the length of the
+        fields.
+        """
+
         all_workshift_values = []
         for workshift in workshift_list:
             for index in workshift_value_indexes:
@@ -29,6 +38,7 @@ def workshift(request):
 
 
 def add_workshift(request):
+    """Add record to table """
 
     # Make sure user is authorised to add records
     if request.user.is_staff is False:
@@ -36,7 +46,7 @@ def add_workshift(request):
             "action": "add new workshifts"
         }
         return render(request, "account/signup_closed.html", context)
-        
+
     if request.method == "POST":
         form = WorkshiftForm(request.POST)
         if form.is_valid():
@@ -60,7 +70,8 @@ def add_workshift(request):
 
 
 def edit_workshift(request, workshift_id):
-    
+    """Edit record in table """
+
     # Make sure user is authorised to edit records
     if request.user.is_staff is False:
         context = {
@@ -68,7 +79,7 @@ def edit_workshift(request, workshift_id):
         }
         return render(request, "account/signup_closed.html", context)
 
-    workshift = get_object_or_404(Workshift, workshift_id=workshift_id )
+    workshift = get_object_or_404(Workshift, workshift_id=workshift_id)
     if request.method == "POST":
         form = WorkshiftForm(request.POST, instance=workshift)
         if form.is_valid():
@@ -85,13 +96,14 @@ def edit_workshift(request, workshift_id):
 
     form = WorkshiftForm(instance=workshift)
     context = {
-    "form": form,
-    "table_item_name": "workshift"
+        "form": form,
+        "table_item_name": "workshift"
     }
     return render(request, "edit-workshift.html", context)
 
 
 def delete_workshift(request, workshift_id):
+    """Delete record in table """
     if request.user.is_staff is False:
         context = {
             "action": "delete workshifts"
