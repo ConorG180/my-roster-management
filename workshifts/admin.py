@@ -1,7 +1,6 @@
 """Admin panel for workshifts app"""
 from django.contrib import admin
 from .models import Workshift
-# Register your models here.
 
 
 class WorkshiftAdmin(admin.ModelAdmin):
