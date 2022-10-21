@@ -47,7 +47,7 @@ class TestEmployeeView(TestCase):
         self.assertTemplateUsed(response, "employee.html")
 
     def test_get_add_employee(self):
-        """Test if add_employee form can be accessed"""
+        """Test if add_employee can be accessed"""
 
         login = self.client.login(
             username='AuthorizedTestUserName',
@@ -60,7 +60,7 @@ class TestEmployeeView(TestCase):
         self.assertTemplateUsed(response, "add-employee.html")
 
     def test_get_edit_employee(self):
-        """Test if edit_employee form can be accessed"""
+        """Test if edit_employee page can be accessed"""
 
         role = Role.objects.create(
             role_id="10",
