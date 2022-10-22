@@ -9,9 +9,9 @@
         </div>
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
-                <table class="table table-bordered border-dark mx-auto">
+                <table class="table border-dark mx-auto">
+                    <caption>List of {{table_name}}</caption>
                     <thead>
-                        <caption>List of {{table_name}}</caption>
                         <tr>
                             <!-- Edit/Delete buttons only available to users with "is_staff" property set to True -->
                             {% if user.is_staff %}

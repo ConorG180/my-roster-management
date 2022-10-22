@@ -18,7 +18,7 @@
 }
 .logo{
   letter-spacing: 1px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .navlink{
@@ -77,10 +77,12 @@ footer .instagram i{
 footer .instagram:hover i{
   color: var(--primary-color) !important;
 }
-
 img{
 max-width: 100%;
 }
 table tr:nth-child(even) {
   background-color: #D3D3D3 !important;
+}
+td, th{
+  border: 2px solid black !important;
 }
