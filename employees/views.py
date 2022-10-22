@@ -7,6 +7,13 @@ from .forms import Employeeform
 def employee_table(request):
     """Function for employee table view"""
 
+    # Make sure user is logged in to view records
+    if request.user.is_authenticated is False:
+        context = {
+            "action": "view employees"
+        }
+        return render(request, "account/signup_closed.html", context)
+
     employees = Employee.objects.all().order_by("employee_id")
     fields = [field for field in Employee._meta.fields]
     employee_list = employees.values_list()
@@ -67,7 +74,8 @@ def add_employee(request):
     """Add record to table """
 
     # Make sure user is authorised to add records
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "add new employees"
         }
@@ -99,7 +107,8 @@ def edit_employee(request, employee_id):
     """Edit record in table """
 
     # Make sure user is authorised to edit records
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "edit employees"
         }
@@ -130,7 +139,8 @@ def edit_employee(request, employee_id):
 
 def delete_employee(request, employee_id):
     """Delete record in table """
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "delete employees"
         }
