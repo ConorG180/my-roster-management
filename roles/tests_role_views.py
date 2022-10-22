@@ -101,7 +101,7 @@ class TestRoleView(TestCase):
         self.assertRedirects(response, "/role/")
 
     def test_can_delete_role(self):
-        """Test if workshift can be deleted"""
+        """Test if role can be deleted"""
 
         role = Role.objects.create(
             role_id="10",
@@ -128,7 +128,7 @@ class TestRoleView(TestCase):
 
     # TESTS FOR UNAUTHORIZED USERS
     def test_unauthorized_user_can_get_role_table(self):
-        """Test if workshift_table can be accessed"""
+        """Test if role_table can be accessed"""
 
         login = self.client.login(
             username='UnauthorizedTestUserName',
@@ -141,7 +141,7 @@ class TestRoleView(TestCase):
         self.assertTemplateUsed(response, "role-table.html")
 
     def test_cannot_get_add_role(self):
-        """Test if add_workshift page cannot be accessed"""
+        """Test if add_role page cannot be accessed"""
 
         login = self.client.login(
             username='UnauthorizedTestUserName',
@@ -154,7 +154,7 @@ class TestRoleView(TestCase):
         self.assertTemplateUsed(response, "unauthorized.html")
 
     def test_cannot_get_edit_role(self):
-        """Test if add_workshift page cannot be accessed"""
+        """Test if add_role page cannot be accessed"""
 
         role = Role.objects.create(
             role_id="10",
@@ -196,7 +196,7 @@ class TestRoleView(TestCase):
         self.assertEqual(len(existing_roles), 0)
 
     def test_cannot_delete_role(self):
-        """Test if workshift cannot be deleted"""
+        """Test if role cannot be deleted"""
 
         role = Role.objects.create(
             role_id="10",
