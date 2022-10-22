@@ -5,6 +5,23 @@
 # Testing and identified bugs
 The following tools and technologies were used to test this project:
 ## **W3 HTML validator**
+For each HTML template in the project, W3 HTML validator was used to test if there were any syntax mistakes or bad practices used within the template. However, W3 HTML validator unfortunately does not consider Jinja templating language being used within the .html files. As a result, many errors were displayed which seemed to be a result of the validator's shortcomings. Images can be seen below of errors/issues being displayed purely because of the Jinja templating language used within the .html files.  
+
+After reviewing these errors/issues displayed by the W3 HTML validator, it was determined that these errors/issues were clearly the result of the Jinja templating language not being taken into consideration by the test. Jinja is clearly a key component of the templates and is designed to be used with django, therefore it was decided that these errors were irrelevant.  
+
+With that in mind, all templates were still tested and any errors which were found not to be related to Jinja were identified and corrected.  
+
+Below are images which display some irrelevant issues displayed from the W3 HTML validator relating to Jinja, and also an example of how a genuine error was made and corrected.  
+
+##### **Images**
+##### Example of irrelevant errors due to jinja templating language.
+base.html testing image
+![base.html testing image](static/testing-images/base-testing-image.png "base.html testing image")
+
+##### Example of relevant errors uncovered.
+table.html testing image
+![Image of all tests being ran](static/testing-images/table-testing-image.png "base.html testing image")
+
 ## **W3C CSS validator**
 ## **PEP8online.com**
 
