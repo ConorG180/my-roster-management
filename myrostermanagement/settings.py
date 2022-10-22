@@ -1,3 +1,4 @@
+"""Settings file for My-Roster-Management"""
 from pathlib import Path
 import os
 import dj_database_url
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
-# Needed for django to be able to handle multiple sites from one database. Neccessary for allauth package.
+# Needed for django to be able to handle multiple sites
+# from one database. Necessary for allauth package.
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
@@ -49,12 +51,15 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-# Needed so that a superuser or user that has staff_status = True can access the register page to add another user.
+# Needed so that a superuser or user
+# that has staff_status = True can access
+# the register page to add another user.
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
 
 # Needed for custom sign_up form
 ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.SignupForm'
 
+# Custom account adapter
 ACCOUNT_ADAPTER = 'accounts.my_account_adaptor.NoNewUsersAccountAdapter'
 
 MIDDLEWARE = [
@@ -92,6 +97,7 @@ WSGI_APPLICATION = 'myrostermanagement.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# SQLlite
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -99,6 +105,7 @@ WSGI_APPLICATION = 'myrostermanagement.wsgi.application'
 #     }
 # }
 
+# PostgreSQL
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
