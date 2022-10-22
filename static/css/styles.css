@@ -86,3 +86,7 @@ table tr:nth-child(even) {
 td, th{
   border: 2px solid black !important;
 }
+
+.font-enlarge{
+  font-size: 1.1rem !important;
+}
