@@ -257,3 +257,6 @@ The tests covered in the role models included:
 Please see below for testing images:  
 ##### **Images**
 ![tests_role_models.py testing](static/testing-images/tests-role-models-image.png "tests_role_models.py testing")
+
+# Unfixed Bugs
+There are no unfixed bugs that I am aware of.
