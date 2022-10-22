@@ -1,11 +1,18 @@
-"""Workshift view"""
+"""Role view"""
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Role
 from .forms import RoleForm
 
 
 def role_table(request):
-    """Function for employee table view"""
+    """Function for role table view"""
+
+    # Make sure user is logged in to view records
+    if request.user.is_authenticated is False:
+        context = {
+            "action": "view roles"
+        }
+        return render(request, "account/signup_closed.html", context)
 
     roles = Role.objects.all().order_by("role_id")
     fields = [field for field in Role._meta.fields]
@@ -57,7 +64,8 @@ def add_role(request):
     """Add record to table """
 
     # Make sure user is authorised to add records
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "add new roles"
         }
@@ -73,9 +81,9 @@ def add_role(request):
         else:
             context = {
                 "form": form,
-                "table_item_name": "Employee",
+                "table_item_name": "Role",
                 }
-            return render(request, "add-employee.html", context)
+            return render(request, "add-role.html", context)
 
     form = RoleForm()
     context = {
@@ -89,7 +97,8 @@ def edit_role(request, role_id):
     """Edit record in table """
 
     # Make sure user is authorised to edit records
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "edit roles"
         }
@@ -121,7 +130,8 @@ def edit_role(request, role_id):
 def delete_role(request, role_id):
     """Delete record in table """
 
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "delete roles"
         }
