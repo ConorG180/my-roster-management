@@ -5,7 +5,15 @@ from .forms import WorkshiftForm
 
 
 def workshift_table(request):
-    """Function for employee table view"""
+    """Function for workshifts table view"""
+
+    # Make sure user is logged in to view records
+    if request.user.is_authenticated is False:
+        context = {
+            "action": "view workshifts"
+        }
+        return render(request, "account/signup_closed.html", context)
+
     workshifts = Workshift.objects.all().order_by("workshift_id")
     fields = [field for field in Workshift._meta.fields]
     workshift_list = workshifts.values_list()
@@ -41,7 +49,8 @@ def add_workshift(request):
     """Add record to table """
 
     # Make sure user is authorised to add records
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "add new workshifts"
         }
@@ -73,7 +82,8 @@ def edit_workshift(request, workshift_id):
     """Edit record in table """
 
     # Make sure user is authorised to edit records
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "edit workshifts"
         }
@@ -90,9 +100,9 @@ def edit_workshift(request, workshift_id):
         else:
             context = {
                 "form": form,
-                "table_item_name": "Employee",
+                "table_item_name": "Workshift",
                 }
-            return render(request, "edit-employee.html", context)
+            return render(request, "edit-workshift.html", context)
 
     form = WorkshiftForm(instance=workshift)
     context = {
@@ -104,7 +114,8 @@ def edit_workshift(request, workshift_id):
 
 def delete_workshift(request, workshift_id):
     """Delete record in table """
-    if request.user.is_staff is False:
+    if (request.user.is_staff is False or 
+    request.user.is_authenticated is False):
         context = {
             "action": "delete workshifts"
         }
