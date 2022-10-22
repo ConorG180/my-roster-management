@@ -1,6 +1,29 @@
 # Testing
 
-# **Responsiveness**
+## **Responsiveness**
+Incorporating responsiveness into the project was made relatively straightforward due to bootstraps Grid feature. Nevertheless, testing on the programme was carried out manually to ensure responsiveness down to screen size of 350px. With Bootstrap, a burger button was also implemented in place of the navbar on smaller screens, along with the use of horizontal scrolling through tables.  
+
+Whilst manually testing for responsiveness, some small changes had to be made to ensure that the programme was fully responsive, including:
+
+* Reducing margin on social media icons on footer, to prevent cutting off icons at smaller screens.
+* Slightly reducing font-size of logo on navbar, to prevent cutting off the logo on smaller screens.
+
+After implementing these changes, the programme was completely responsive at screen sizes down to 350px. Images can be seen below showcasing the programme's responsiveness:
+
+##### **Images**
+**Homepage**  
+![Image of all tests being ran](static/testing-images/responsiveness-small-screens-home-page.png "base.html testing image")  
+
+**Tables**  
+![Image of all tests being ran](static/testing-images/responsiveness-small-screens-table.png "base.html testing image")  
+
+**Contact modal**  
+![Image of all tests being ran](static/testing-images/responsiveness-small-screens-contact-modal.png "base.html testing image")
+
+
+
+
+
 
 # Testing and identified bugs
 The following tools and technologies were used to test this project:
@@ -15,15 +38,42 @@ Below are images which display some irrelevant issues displayed from the W3 HTML
 
 ##### **Images**
 ##### Example of irrelevant errors due to jinja templating language.
-base.html testing image
+**base.html testing image**
 ![base.html testing image](static/testing-images/base-testing-image.png "base.html testing image")
 
 ##### Example of relevant errors uncovered.
-table.html testing image
+**table.html testing image**
 ![Image of all tests being ran](static/testing-images/table-testing-image.png "base.html testing image")
 
 ## **W3C CSS validator**
-## **PEP8online.com**
+Whilst bootstrap was used for the majority of styling throughout this project, a custom css style sheet (styles.css) was used to provide customer styling throughout the project. This can be seen in the orange coloring used in the brand logo and in the social media icons styling.
+
+To test this custom-written CSS, the W3C CSS validator was used. Upon testing, no errors were discovered. The testing image can be seen below:  
+
+![Image of styles.css (custom css) being tested](static/testing-images/styles.css-testing-image.png "Image of styles.css (custom css) being tested")
+## **PEP 8**
+PEP 8 guidelines and practises were implemented when building this project. To test this, it was originally planned to use [pep8online.com](http://pep8online.com/). However, as of the time of creating this project, the website is currently not active and cannot be accessed. Therefore, it was decided to use the extention `pycodestyle` to test if the python code adhered to the PEP 8 guidelines and practises.
+
+All python files contained PEP 8 errors of some kind, the most commone of which included:  
+
+* E2 - Whitespace errors
+* E3 - Blank line errors
+* E5 - Line length errors
+* W2 - Whitespace warnings
+
+Whilst these errors were not causing fatal errors within the project or preventing the software from functioning as expected, it can still be considered bad practise to leave these errors within the project. This is mainly from a "code readability" perspective. In correcting these errors, the code will be easier to maintain in the future should updates/changes need to be implemented. Furthermore, future debugging will also be made much easier.
+
+Unfortunately, there are still some very minor PEP 8 errors displayed in the problems tab of the terminal. These errors/warnings however, are not fatal, and do not impact the programme in any way, shape or form.
+
+These errors include:
+
+* `Class 'Role' has no '_meta' member.` This error occurs with multiple classes, not specifically with 'Role' class
+* `Class 'Role' has no 'objects' member.` This error occurs with multiple classes, not specifically with the 'Role' class
+* `Access to a protected member _meta of a client class.`
+
+An image of these errors and warnings can be seen below:  
+##### **Images**
+![PEP 8 remaining errors](static/testing-images/pep-8-remaining-errors.png "PEP 8 remaining errors")
 
 # **Automated tests**
 As part of the project, automated testing was made a key feature of the project. This was done to ensure accuracy of the models, forms and views built in the project. It was also incoporated to act as a safeguard against any bugs which may occur from future changes to the project. In total, 61 tests were constructed and used to test the forms, views and models across the projects 4 apps (accounts, employees, roles and workshifts). An image of all the 61 tests being ran can be seen below:  
