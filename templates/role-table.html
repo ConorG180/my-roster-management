@@ -11,11 +11,11 @@
     <div class="row">
         <div class="col-lg-8 offset-lg-2 d-flex justify-content-around">
             {% if user.is_staff %}
-            <a href="{% url 'add_role' %}">
-                <button class="btn btn-primary btn-lg">
-                    Add {{table_item_name}}
-                </button>
-            </a>
+                <a href="{% url 'add_role' %}">
+                    <button class="btn btn-primary btn-lg">
+                        Add {{table_item_name}}
+                    </button>
+                </a>
             {% endif %}
         </div>
     </div>
