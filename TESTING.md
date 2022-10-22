@@ -1,6 +1,9 @@
 # Testing
 
-## **Responsiveness**
+# Browser Compatibility
+Testing of the programme was carried out in Firefox, Microsoft Edge, Opera and Google Chrome. Throughout the different browsers, no significant changes were observed, and the programme remained consistent both aesthetically and functionally.
+
+# **Responsiveness**
 Incorporating responsiveness into the project was made relatively straightforward due to bootstraps Grid feature. Nevertheless, testing on the programme was carried out manually to ensure responsiveness down to screen size of 350px. With Bootstrap, a burger button was also implemented in place of the navbar on smaller screens, along with the use of horizontal scrolling through tables.  
 
 Whilst manually testing for responsiveness, some small changes had to be made to ensure that the programme was fully responsive, including:
