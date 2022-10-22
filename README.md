@@ -5,7 +5,7 @@
 MyRosterManagement is a programme designed for SME's (Small and Medium Enterprises) to aid them in staff and roster management. The main purpose the software serves is to allow managers/shift supervisors to schedule and set up shifts for employees at certain times on certain days. It is designed to aid managers/shift supervisors in not only the planning and scheduling of shifts of the company's workforce, but will also allow them to create/edit/delete roles and employees too, should circumstances for the companies change.  
 Another purpose the programme will serve is to easily view the different days and months of the year, and allow managers to visualise how the workforce is scheduled on certain days and weeks. From this, managers can then tactically decide if they require more/less staff. While able to be used for any SME, it is expected to be especially useful to SMEs which incorporate and heavily rely on shift work, such as bars, restauraunts, supermarkets, shops, cafes, warehouses and courier services.  
 
-The full [My-Roster-Management](https://my-roster-management.herokuapp.com/). programme can be accessed here.
+The full [My-Roster-Management](https://my-roster-management.herokuapp.com/) programme can be accessed here.
 
 # UX design
 ## Color scheme
@@ -58,7 +58,7 @@ An attractive footer is included in the programme to offer the user a simple way
 ![footer](static/images/footer.png "footer")
 
 ### CRUD (Create, Read, Update, Delete) functionality
-On each table outlining the companies current records of employees, roles and scheduled workshifts, there are buttons which allow the user to manipulate these records. For example, an authorized user may add a new employee and delete the replaced employee, and edit any details about the new employee if they wish.
+On each table outlining the companies current records of employees, roles and scheduled workshifts, there are buttons which allow an authorized user to manipulate these records. For example, an authorized user may add a new employee and delete the replaced employee, and edit any details about the new employee if they wish.
 #### **Images**  
 ##### **CRUD functionality on table**
 ![crud functionality displayed on employee table](static/images/crud-functionality-employee-table.png "crud functionality displayed on employee table")
