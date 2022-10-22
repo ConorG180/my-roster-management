@@ -1,6 +1,55 @@
 ![My-Roster-Management logo](static/images/my-roster-management-logo.png "My-Roster-Management logo")
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+- [MyRosterManagement](#myrostermanagement)
+- [UX design](#ux-design)
+  - [Color scheme](#color-scheme)
+  - [Layout](#layout)
+- [Wireframes](#wireframes)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Features](#features)
+  - [Existing features](#existing-features)
+    - [Navigation](#navigation)
+      - [**Images**](#images)
+        - [**Logged in as Admin**](#logged-in-as-admin)
+        - [**Logged in as non-Admin**](#logged-in-as-non-admin)
+        - [**Logged out**](#logged-out)
+        - [**Table buttons**](#table-buttons)
+    - [Contact us modal](#contact-us-modal)
+      - [**Images**](#images-1)
+    - [Footer](#footer)
+      - [**Images**](#images-2)
+    - [CRUD (Create, Read, Update, Delete) functionality](#crud-create-read-update-delete-functionality)
+      - [**Images**](#images-3)
+        - [**CRUD functionality on table**](#crud-functionality-on-table)
+        - [**Adding record form**](#adding-record-form)
+        - [**Editing record form**](#editing-record-form)
+    - [Account creation and login/logout functionality](#account-creation-and-loginlogout-functionality)
+      - [**Images**](#images-4)
+        - [**Account registration form**](#account-registration-form)
+        - [**Signin form**](#signin-form)
+        - [**Signout confirmation**](#signout-confirmation)
+    - [User permissions](#user-permissions)
+      - [**Images**](#images-5)
+        - [**Unauthorized user view of table**](#unauthorized-user-view-of-table)
+        - [**Unauthorized message if brute-forcing a URL is attempted**](#unauthorized-message-if-brute-forcing-a-url-is-attempted)
+    - [Form validation](#form-validation)
+      - [**Images**](#images-6)
+  - [Future features](#future-features)
+    - [Calendar](#calendar)
+      - [**Images**](#images-7)
+    - [Calendar day view](#calendar-day-view)
+      - [**Images**](#images-8)
+    - [Automated email confirmation of workshift](#automated-email-confirmation-of-workshift)
+- [Testing and bugs](#testing-and-bugs)
+- [Technologies, frameworks, packages and libraries used](#technologies-frameworks-packages-and-libraries-used)
+- [Deployment](#deployment)
+  - [Local Deployment](#local-deployment)
+    - [Heroku Deployment](#heroku-deployment)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Acknowledgements](#acknowledgements)
 
-<!-- Add Table of Contents here -->
 # MyRosterManagement
 MyRosterManagement is a programme designed for SME's (Small and Medium Enterprises) to aid them in staff and roster management. The main purpose the software serves is to allow managers/shift supervisors to schedule and set up shifts for employees at certain times on certain days. It is designed to aid managers/shift supervisors in not only the planning and scheduling of shifts of the company's workforce, but will also allow them to create/edit/delete roles and employees too, should circumstances for the companies change.  
 Another purpose the programme will serve is to easily view the different days and months of the year, and allow managers to visualise how the workforce is scheduled on certain days and weeks. From this, managers can then tactically decide if they require more/less staff. While able to be used for any SME, it is expected to be especially useful to SMEs which incorporate and heavily rely on shift work, such as bars, restauraunts, supermarkets, shops, cafes, warehouses and courier services.  
@@ -116,6 +165,8 @@ Another feature which extends from the calendar feature, was to include a way fo
 ### Automated email confirmation of workshift
 In the future, automated emails may be implemented to notify employees who are scheduled to work on certain days. This feature would work by sending an email to the employee's recorded email address, and notifying them on what day and at what times they are scheduled to work. The email would be sent as soon as the workshift is scheduled by the admin user.   
 
+# Testing and bugs
+For all testing, please refer to the [TESTING.md](TESTING.md) file.
 
 # Technologies, frameworks, packages and libraries used
 The following technologies were used in the development of this project:  
