@@ -19,6 +19,10 @@
             <p class="font-enlarge">
                 MyRosterManagement Ltd is a SaaS-based product which aims to assist small and medium sized companies with their company records. These records typically include data from Employees, Workshifts and Roles, but can be expanded to include Financial records, Sales records, Purchasing orders and more! We are happy to build a project designed and tailored specifically towards your company's needs. For more information on our services, you can access all of our contact information<a href="#" class="font-enlarge" data-toggle="modal" data-target="#contact-modal"> here</a>. 
             </p>
+            {% if not user.is_authenticated %}
+            <h3 class="text-danger text-center">Note!</h3>
+            <p>Please <a href="{% url 'account_login' %}">login</a> using the username <span class="font-weight-bold">testing</span> and the password <span class="font-weight-bold">TestingPassword123</span> If you would like to access this application for testing purposes or to access and view other pages of the application. This programme is designed so that only authorised users can create accounts for their employees, so as to prevent users impersonating to be employees of a company and simply signing up for their own account. As a result, there is no option to register.</p>
+            {% endif %}
         </div>
     </div>
 </div>
