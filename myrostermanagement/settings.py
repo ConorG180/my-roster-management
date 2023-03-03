@@ -62,6 +62,9 @@ ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.SignupForm'
 # Custom account adapter
 ACCOUNT_ADAPTER = 'accounts.my_account_adaptor.NoNewUsersAccountAdapter'
 
+# Custom login form with django-allauth
+ACCOUNT_FORMS = {'login': 'accounts.forms.CustomLoginForm'}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
